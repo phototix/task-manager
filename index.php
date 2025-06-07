@@ -208,7 +208,7 @@
                 };
                 
                 $.ajax({
-                    url: 'api/tasks.php?user_id=${userId}',
+                    url: `api/tasks.php?user_id=${userId}`,
                     type: 'POST',
                     data: JSON.stringify(taskData),
                     contentType: 'application/json',
