@@ -51,7 +51,7 @@
 
         <div class="row mb-4">
             <div class="col-md-8 mx-auto">
-                
+                <button class="btn btn-primary add-task-btn"><i class="fas fa-plus me-2"></i>Add New Task</button>
             </div>
         </div>
 
@@ -239,6 +239,12 @@
             
             // Load tasks
             loadTasks();
+
+            // Add task modal
+            let addTaskModal = new bootstrap.Modal(document.getElementById('addTaskModal'));
+            $(document).on('click', '.add-task-btn', function() {
+                addTaskModal.show();
+            });
             
             // Add new task
             $('#taskForm').submit(function(e) {
