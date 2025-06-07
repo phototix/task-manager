@@ -11,16 +11,8 @@ $clean_uri = rtrim($clean_uri, '/');
 
 // Simple router
 switch ($clean_uri) {
-    case '/calendar':
-        // Load the calendar page
-        require_once BASE_PATH . '/calendar.php';
-        break;
         
     case '/':
-    case '':
-        // Load the tasks page (default)
-        require_once BASE_PATH . '/tasks.php';
-        break;
         
     default:
         // Handle 404 Not Found
