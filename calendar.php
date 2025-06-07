@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             padding: 20px;
@@ -45,7 +47,7 @@
                     <button class="btn btn-primary" id="loadCalendarBtn" style="display:none;">Load Calendar</button>
                     <button class="btn btn-success" id="addTaskBtn">Add New Task</button> 
                     <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>" style="margin-left:10px;">
-                        <button class="btn btn-warning"><i class="fas fa-calendar me-2"></i>Tasks List</button>
+                        <button class="btn btn-warning"><i class="fas fa-list me-2"></i>Tasks List</button>
                     </a>
                 </div>
             </div>
