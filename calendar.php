@@ -251,6 +251,7 @@
             // Save task (create or update)
             function saveTask() {
                 const taskId = document.getElementById('taskId').value;
+                const userId = document.getElementById('userId').value;
                 const taskData = {
                     user_id: currentUserId,
                     task_description: document.getElementById('taskDescription').value,
@@ -261,7 +262,7 @@
                     is_completed: document.getElementById('taskCompleted').checked ? 1 : 0
                 };
                 
-                const url = '/api/tasks.php' + (taskId ? `?id=${taskId}` : '');
+                const url = '/api/tasks.php' + `?user_id=<?php echo $_GET['user_id'] ?? ''; ?>` + (taskId ? `?id=${taskId}` : '');
                 const method = taskId ? 'PUT' : 'POST';
                 
                 $.ajax({
