@@ -45,7 +45,7 @@
                     <span class="input-group-text" style="display:none;">User ID</span>
                     <input type="text" class="form-control" id="userIdInput" value="<?php echo $_GET['user_id'] ?? ''; ?>" style="display:none;">
                     <button class="btn btn-primary" id="loadCalendarBtn" style="display:none;">Load Calendar</button>
-                    <button class="btn btn-success" id="addTaskBtn">Add New Task</button> 
+                    <button class="btn btn-success" id="addTaskBtn"><i class="fas fa-plus me-2"></i>Add New Task</button> 
                     <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>" style="margin-left:10px;">
                         <button class="btn btn-warning"><i class="fas fa-list me-2"></i>Tasks List</button>
                     </a>
