@@ -40,8 +40,8 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <div class="input-group">
-                    <span class="input-group-text">User ID</span>
-                    <input type="text" class="form-control" id="userIdInput" value="<?php echo $_GET['user_id'] ?? ''; ?>">
+                    <span class="input-group-text" style="display:none;">User ID</span>
+                    <input type="text" class="form-control" id="userIdInput" value="<?php echo $_GET['user_id'] ?? ''; ?>" style="display:none;">
                     <button class="btn btn-primary" id="loadCalendarBtn" style="display:none;">Load Calendar</button>
                     <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
                         <button class="btn btn-warning"><i class="fas fa-calendar me-2"></i>Tasks List</button>
