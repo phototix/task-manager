@@ -69,7 +69,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="taskDate" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="taskDate" required>
+                            <input type="text" class="form-control" id="taskDate" 
+                               placeholder="DD/MM/YYYY" 
+                               pattern="\d{2}/\d{2}/\d{4}" 
+                               title="Please enter date in DD/MM/YYYY format" 
+                               required>
                         </div>
                         <div class="mb-3">
                             <label for="taskTime" class="form-label">Time</label>
@@ -125,6 +129,26 @@
             
             let calendar;
             let currentUserId = '';
+
+            // Helper functions for date formatting
+            function formatDateForDisplay(dateStr) {
+                if (!dateStr) return '';
+                const date = new Date(dateStr);
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const year = date.getFullYear();
+                return `${day}/${month}/${year}`;
+            }
+
+            function formatDateForStorage(dateStr) {
+                if (!dateStr) return '';
+                // Convert from DD/MM/YYYY to YYYY-MM-DD
+                const parts = dateStr.split('/');
+                if (parts.length === 3) {
+                    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+                }
+                return dateStr; // fallback
+            }
             
             // Initialize calendar
             function initCalendar(userId) {
@@ -195,7 +219,11 @@
                 document.getElementById('taskModalLabel').textContent = 'Edit Task';
                 document.getElementById('taskId').value = event.id;
                 document.getElementById('taskDescription').value = event.extendedProps.description;
-                document.getElementById('taskDate').value = event.startStr.split('T')[0];
+
+                // Format date for display (convert from YYYY-MM-DD to DD/MM/YYYY)
+                const eventDate = event.startStr.split('T')[0];
+                document.getElementById('taskDate').value = formatDateForDisplay(eventDate);
+
                 document.getElementById('taskTime').value = event.extendedProps.time || '';
                 document.getElementById('taskPriority').value = event.extendedProps.priority;
                 document.getElementById('taskRemarks').value = event.extendedProps.remarks || '';
@@ -210,7 +238,7 @@
                 document.getElementById('taskModalLabel').textContent = 'Add New Task';
                 document.getElementById('taskId').value = '';
                 document.getElementById('taskDescription').value = '';
-                document.getElementById('taskDate').value = dateStr;
+                document.getElementById('taskDate').value = formatDateForDisplay(dateStr);
                 document.getElementById('taskTime').value = '';
                 document.getElementById('taskPriority').value = '3';
                 document.getElementById('taskRemarks').value = '';
@@ -226,7 +254,7 @@
                 const taskData = {
                     user_id: currentUserId,
                     task_description: document.getElementById('taskDescription').value,
-                    task_date: document.getElementById('taskDate').value,
+                    task_date: formatDateForStorage(document.getElementById('taskDate').value),
                     time: document.getElementById('taskTime').value || null,
                     priority: document.getElementById('taskPriority').value,
                     remarks: document.getElementById('taskRemarks').value || null,
