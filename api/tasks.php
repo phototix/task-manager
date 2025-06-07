@@ -49,14 +49,15 @@ switch ($method) {
             break;
         }
         
-        $query = "INSERT INTO daily_tasks (user_id, task_description, priority, remarks, time) 
-                  VALUES (:user_id, :task_description, :priority, :remarks, :time)";
+        $query = "INSERT INTO daily_tasks (user_id, task_description, priority, remarks, time, task_date) 
+                  VALUES (:user_id, :task_description, :priority, :remarks, :time, :task_date)";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':user_id', $userId);
         $stmt->bindParam(':task_description', $data['task_description']);
         $stmt->bindParam(':priority', $data['priority']);
         $stmt->bindParam(':remarks', $data['remarks']);
         $stmt->bindParam(':time', $data['time']);
+        $stmt->bindParam(':task_date', date('Y-m-d'));
         
         if ($stmt->execute()) {
             echo json_encode(['success' => true, 'id' => $db->lastInsertId()]);
