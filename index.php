@@ -113,41 +113,6 @@
                             <label for="taskRemarks" class="form-label">Remarks (optional)</label>
                             <textarea class="form-control" id="taskRemarks" rows="2"></textarea>
                         </div>
-                        <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Add New Task</h5>
-                    </div>
-                    <div class="card-body">
-                        <form id="taskForm">
-                            <div class="mb-3">
-                                <label for="taskDescription" class="form-label">Task Description</label>
-                                <textarea class="form-control" id="taskDescription" rows="2" required></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="taskPriority" class="form-label">Priority</label>
-                                    <select class="form-select" id="taskPriority">
-                                        <option value="1">Urgent</option>
-                                        <option value="2">High</option>
-                                        <option value="3" selected>Medium</option>
-                                        <option value="4">Low</option>
-                                        <option value="5">Optional</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="taskTime" class="form-label">Time (optional)</label>
-                                    <input type="time" class="form-control" id="taskTime">
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="taskRemarks" class="form-label">Remarks (optional)</label>
-                                <textarea class="form-control" id="taskRemarks" rows="2"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                            <i class="fas fa-plus me-2"></i>Add Task
-                        </button>
                     </form>
                 </div>
                 <div class="modal-footer">
