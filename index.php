@@ -83,12 +83,12 @@
     <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add NewTask</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="taskForm">
+                <form id="taskForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add NewTask</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
                         <div class="mb-3">
                             <label for="taskDescription" class="form-label">Task Description</label>
                             <textarea class="form-control" id="taskDescription" rows="2" required></textarea>
@@ -113,13 +113,13 @@
                             <label for="taskRemarks" class="form-label">Remarks (optional)</label>
                             <textarea class="form-control" id="taskRemarks" rows="2"></textarea>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-plus me-2"></i>Add Task
-                    </button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>Add Task
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
