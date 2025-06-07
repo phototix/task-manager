@@ -232,6 +232,7 @@
                         if (response.success) {
                             $('#taskForm')[0].reset();
                             loadTasks();
+                            addTaskModal.hide();
                         } else {
                             alert('Error: ' + response.message);
                         }
