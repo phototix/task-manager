@@ -52,6 +52,9 @@
         <div class="row mb-4">
             <div class="col-md-8 mx-auto">
                 <button class="btn btn-primary add-task-btn"><i class="fas fa-plus me-2"></i>Add New Task</button>
+                <a href="/index.php/calendar?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
+                    <button class="btn btn-primary add-task-btn"><i class="fas fa-calendar me-2"></i>Calendar</button>
+                </a>
             </div>
         </div>
 
