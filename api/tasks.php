@@ -16,7 +16,7 @@ switch ($method) {
     case 'GET':
         // Get all tasks for the user for today
         if ($userId) {
-            $query = "SELECT * FROM daily_tasks WHERE user_id = :user_id AND task_date = CURDATE() ORDER BY priority, time";
+            $query = "SELECT * FROM daily_tasks WHERE user_id = :user_id ORDER BY priority, time";
             $stmt = $db->prepare($query);
             $stmt->bindParam(':user_id', $userId);
             $stmt->execute();
