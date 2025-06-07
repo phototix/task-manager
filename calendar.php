@@ -38,18 +38,16 @@
     <div class="container">
         <h1 class="my-4">Task Calendar</h1>
         <div class="row mb-3">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="input-group">
                     <span class="input-group-text" style="display:none;">User ID</span>
                     <input type="text" class="form-control" id="userIdInput" value="<?php echo $_GET['user_id'] ?? ''; ?>" style="display:none;">
                     <button class="btn btn-primary" id="loadCalendarBtn" style="display:none;">Load Calendar</button>
+                    <button class="btn btn-success" id="addTaskBtn">Add New Task</button>
                     <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
                         <button class="btn btn-warning"><i class="fas fa-calendar me-2"></i>Tasks List</button>
                     </a>
                 </div>
-            </div>
-            <div class="col-md-6 text-end">
-                <button class="btn btn-success" id="addTaskBtn">Add New Task</button>
             </div>
         </div>
         <div id="calendar"></div>
