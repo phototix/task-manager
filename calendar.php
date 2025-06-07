@@ -42,7 +42,7 @@
                 <div class="input-group">
                     <span class="input-group-text">User ID</span>
                     <input type="text" class="form-control" id="userIdInput" value="<?php echo $_GET['user_id'] ?? ''; ?>">
-                    <button class="btn btn-primary" id="loadCalendarBtn">Load Calendar</button>
+                    <button class="btn btn-primary" id="loadCalendarBtn" style="display:none;">Load Calendar</button>
                     <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
                         <button class="btn btn-warning"><i class="fas fa-calendar me-2"></i>Tasks List</button>
                     </a>
