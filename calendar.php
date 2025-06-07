@@ -251,7 +251,7 @@
             // Save task (create or update)
             function saveTask() {
                 const taskId = document.getElementById('taskId').value;
-                const userId = document.getElementById('userId').value;
+                const userId = document.getElementById('userIdInput').value;
                 const taskData = {
                     user_id: currentUserId,
                     task_description: document.getElementById('taskDescription').value,
@@ -283,6 +283,7 @@
             // Delete task
             function deleteTask() {
                 const taskId = document.getElementById('taskId').value;
+                const userId = document.getElementById('userIdInput').value;
                 
                 if (!confirm('Are you sure you want to delete this task?')) {
                     return;
