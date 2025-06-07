@@ -151,7 +151,7 @@
                         const endDate = fetchInfo.endStr.split('T')[0];
                         
                         $.ajax({
-                            url: 'api/tasks.php',
+                            url: '/api/tasks.php',
                             data: {
                                 user_id: currentUserId,
                                 start: startDate,
@@ -233,7 +233,7 @@
                     is_completed: document.getElementById('taskCompleted').checked ? 1 : 0
                 };
                 
-                const url = 'api/tasks.php' + (taskId ? `?id=${taskId}` : '');
+                const url = '/api/tasks.php' + (taskId ? `?id=${taskId}` : '');
                 const method = taskId ? 'PUT' : 'POST';
                 
                 $.ajax({
@@ -260,7 +260,7 @@
                 }
                 
                 $.ajax({
-                    url: `api/tasks.php?id=${taskId}`,
+                    url: `/api/tasks.php?id=${taskId}`,
                     type: 'DELETE',
                     success: function() {
                         calendar.refetchEvents();
