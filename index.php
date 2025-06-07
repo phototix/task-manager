@@ -51,7 +51,69 @@
 
         <div class="row mb-4">
             <div class="col-md-8 mx-auto">
-                <div class="card">
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3>Today's Tasks</h3>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-secondary filter-btn active" data-filter="all">All</button>
+                        <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="pending">Pending</button>
+                        <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="completed">Completed</button>
+                    </div>
+                </div>
+
+                <div id="tasksContainer">
+                    <!-- Tasks will be loaded here -->
+                    <div class="text-center py-5">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Loading tasks...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Add Modal -->
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add NewTask</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="taskForm">
+                        <div class="mb-3">
+                            <label for="taskDescription" class="form-label">Task Description</label>
+                            <textarea class="form-control" id="taskDescription" rows="2" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="taskPriority" class="form-label">Priority</label>
+                                <select class="form-select" id="taskPriority">
+                                    <option value="1">Urgent</option>
+                                    <option value="2">High</option>
+                                    <option value="3" selected>Medium</option>
+                                    <option value="4">Low</option>
+                                    <option value="5">Optional</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="taskTime" class="form-label">Time (optional)</label>
+                                <input type="time" class="form-control" id="taskTime">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="taskRemarks" class="form-label">Remarks (optional)</label>
+                            <textarea class="form-control" id="taskRemarks" rows="2"></textarea>
+                        </div>
+                        <div class="card">
                     <div class="card-header bg-primary text-white">
                         <h5 class="mb-0">Add New Task</h5>
                     </div>
@@ -81,39 +143,22 @@
                                 <label for="taskRemarks" class="form-label">Remarks (optional)</label>
                                 <textarea class="form-control" id="taskRemarks" rows="2"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-plus me-2"></i>Add Task
-                            </button>
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h3>Today's Tasks</h3>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-outline-secondary filter-btn active" data-filter="all">All</button>
-                        <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="pending">Pending</button>
-                        <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="completed">Completed</button>
-                    </div>
+                            <i class="fas fa-plus me-2"></i>Add Task
+                        </button>
+                    </form>
                 </div>
-
-                <div id="tasksContainer">
-                    <!-- Tasks will be loaded here -->
-                    <div class="text-center py-5">
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                        <p class="mt-2">Loading tasks...</p>
-                    </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Add Task
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <!-- Task Edit Modal -->
     <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
         <div class="modal-dialog">
