@@ -262,7 +262,7 @@
                     is_completed: document.getElementById('taskCompleted').checked ? 1 : 0
                 };
                 
-                const url = '/api/tasks.php' + `?user_id=<?php echo $_GET['user_id'] ?? ''; ?>` + (taskId ? `?id=${taskId}` : '');
+                const url = '/api/tasks.php' + `?user_id=<?php echo $_GET['user_id'] ?? ''; ?>` + (taskId ? `&id=${taskId}` : '');
                 const method = taskId ? 'PUT' : 'POST';
                 
                 $.ajax({
