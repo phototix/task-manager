@@ -41,35 +41,22 @@ switch ($method) {
         
     case 'POST':
         // Add new task
-        $json = file_get_contents('php://input');
-        $data = json_decode($json, true);
+        $data = json_decode(file_get_contents('php://input'), true);
         
-        // Validate required fields
-        if (!isset($data['user_id']) {
+        if (!$userId) {
             http_response_code(400);
             echo json_encode(['success' => false, 'message' => 'user_id is required']);
-            exit;
+            break;
         }
-        
-        if (!isset($data['task_description']) || empty($data['task_description'])) {
-            http_response_code(400);
-            echo json_encode(['success' => false, 'message' => 'Task description is required']);
-            exit;
-        }
-        
-        // Set default values
-        $priority = $data['priority'] ?? 3; // Default to Medium priority
-        $remarks = $data['remarks'] ?? null;
-        $time = $data['time'] ?? null;
         
         $query = "INSERT INTO daily_tasks (user_id, task_description, priority, remarks, time) 
                   VALUES (:user_id, :task_description, :priority, :remarks, :time)";
         $stmt = $db->prepare($query);
-        $stmt->bindParam(':user_id', $data['user_id']);
+        $stmt->bindParam(':user_id', $userId);
         $stmt->bindParam(':task_description', $data['task_description']);
-        $stmt->bindParam(':priority', $priority);
-        $stmt->bindParam(':remarks', $remarks);
-        $stmt->bindParam(':time', $time);
+        $stmt->bindParam(':priority', $data['priority']);
+        $stmt->bindParam(':remarks', $data['remarks']);
+        $stmt->bindParam(':time', $data['time']);
         
         if ($stmt->execute()) {
             echo json_encode(['success' => true, 'id' => $db->lastInsertId()]);
