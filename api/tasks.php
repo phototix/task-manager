@@ -81,6 +81,7 @@ switch ($method) {
                   task_description = :task_description,
                   priority = :priority,
                   remarks = :remarks,
+                  task_date = :task_date,
                   time = :time,
                   is_completed = :is_completed
                   WHERE id = :id";
@@ -89,6 +90,7 @@ switch ($method) {
         $stmt->bindParam(':task_description', $data['task_description']);
         $stmt->bindParam(':priority', $data['priority']);
         $stmt->bindParam(':remarks', $data['remarks']);
+        $stmt->bindParam(':task_date', $data['task_date']);
         $stmt->bindParam(':time', $data['time']);
         $stmt->bindParam(':is_completed', $data['is_completed']);
         
