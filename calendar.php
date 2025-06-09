@@ -146,7 +146,7 @@
             let currentUserId = '';
 
             // Display user greeting
-            $('#userGreeting').text(`Welcome, User ${userIdInput}!`);
+            $('#userGreeting').text(`Welcome, User ${userIdInput.value}!`);
 
             // Display current date
             const today = new Date();
