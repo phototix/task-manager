@@ -198,16 +198,16 @@
             const filterAllTasks = document.getElementById('filterAllTasks');
             const filterPendingTasks = document.getElementById('filterPendingTasks');
             const filterCompletedTask = document.getElementById('filterCompletedTask');
-            const curentFilterTasks = document.getElementById('curentFilterTasks').value;
+            const curentFilterTasks = document.getElementById('curentFilterTasks');
 
             $('#filterAllTasks').click(function() {
-                curentFilterTasks = "all";
+                curentFilterTasks.value = "all";
             });
             $('#filterPendingTasks').click(function() {
-                curentFilterTasks = "pending";
+                curentFilterTasks.value = "pending";
             });
             $('#filterCompletedTask').click(function() {
-                curentFilterTasks = "completed";
+                curentFilterTasks.value = "completed";
             });
             
             if (!userId) {
@@ -427,13 +427,14 @@
                         }
                         
                         $('#tasksContainer').html(html);
-                        if(curentFilterTasks=="all"){
+                        
+                        if(curentFilterTasks.value=="all"){
                             filterAllTasks.click();
                         }
-                        if(curentFilterTasks=="pending"){
+                        if(curentFilterTasks.value=="pending"){
                             filterPendingTasks.click();
                         }
-                        if(curentFilterTasks=="completed"){
+                        if(curentFilterTasks.value=="completed"){
                             filterCompletedTask.click();
                         }
                     },
