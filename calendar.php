@@ -145,6 +145,9 @@
             let calendar;
             let currentUserId = '';
 
+            // Display user greeting
+            $('#userGreeting').text(`Welcome, User ${userIdInput}!`);
+
             // Display current date
             const today = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
