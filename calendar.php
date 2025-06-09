@@ -19,6 +19,7 @@
         .fc-event {
             cursor: pointer;
         }
+        .priority-0 { background-color: #6610f2; border-color: #6610f2; } /* General - Purple */
         .priority-1 { background-color: #dc3545; border-color: #dc3545; } /* Urgent */
         .priority-2 { background-color: #fd7e14; border-color: #fd7e14; } /* High */
         .priority-3 { background-color: #ffc107; border-color: #ffc107; color: #212529; } /* Medium */
@@ -86,6 +87,7 @@
                         <div class="mb-3">
                             <label for="taskPriority" class="form-label">Priority</label>
                             <select class="form-select" id="taskPriority">
+                                <option value="0">General</option>
                                 <option value="1">Urgent</option>
                                 <option value="2">High</option>
                                 <option value="3">Medium</option>
@@ -244,7 +246,7 @@
                 document.getElementById('taskDescription').value = '';
                 document.getElementById('taskDate').value = formatDateForDisplay(dateStr);
                 document.getElementById('taskTime').value = '';
-                document.getElementById('taskPriority').value = '3';
+                document.getElementById('taskPriority').value = '0';
                 document.getElementById('taskRemarks').value = '';
                 document.getElementById('taskCompleted').checked = false;
                 
