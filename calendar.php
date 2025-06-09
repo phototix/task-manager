@@ -84,7 +84,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="taskDate" class="form-label">Date</label>
-                            <input type="text" class="form-control" id="taskDate" 
+                            <input type="date" class="form-control" id="taskDate" 
                                placeholder="DD/MM/YYYY" 
                                pattern="\d{2}/\d{2}/\d{4}" 
                                title="Please enter date in DD/MM/YYYY format" 
