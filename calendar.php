@@ -296,7 +296,7 @@
                     data: JSON.stringify(taskData),
                     contentType: 'application/json',
                     success: function() {
-                        console.log(formatDateForStorage(document.getElementById('taskDate').value));
+                        console.log(method + formatDateForStorage(document.getElementById('taskDate').value));
                         calendar.refetchEvents();
                         taskModal.hide();
                     },
