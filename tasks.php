@@ -65,9 +65,9 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h3>Today's Tasks</h3>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-outline-secondary filter-btn active" data-filter="all">All</button>
-                        <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="pending">Pending</button>
-                        <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="completed">Completed</button>
+                        <button type="button" class="btn btn-outline-secondary filter-btn active" data-filter="all" id="filterAllTasks">All</button>
+                        <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="pending" id="filterPendingTasks">Pending</button>
+                        <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="completed" id="filterCompletedTask">Completed</button>
                     </div>
                 </div>
 
@@ -195,6 +195,9 @@
             // Get user_id from URL parameter
             const urlParams = new URLSearchParams(window.location.search);
             const userId = urlParams.get('user_id');
+            const filterAllTasks = document.getElementById('filterAllTasks');
+            const filterPendingTasks = document.getElementById('filterPendingTasks');
+            const filterCompletedTask = document.getElementById('filterCompletedTask');
             
             if (!userId) {
                 alert('User ID is required in the URL parameter (e.g., ?user_id=123)');
