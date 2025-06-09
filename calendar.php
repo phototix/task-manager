@@ -247,7 +247,9 @@
 
                 // Format date for display (convert from YYYY-MM-DD to DD/MM/YYYY)
                 const eventDate = event.startStr.split('T')[0];
+                console.log("BrowserDate:"+eventDate);
                 document.getElementById('taskDate').value = formatDateForDisplay(eventDate);
+                console.log("ConvertedDate:"+formatDateForDisplay(eventDate));
 
                 document.getElementById('taskTime').value = event.extendedProps.time || '';
                 document.getElementById('taskPriority').value = event.extendedProps.priority;
