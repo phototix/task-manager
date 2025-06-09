@@ -31,6 +31,7 @@
         .priority-3 { border-left: 4px solid #ffc107; } /* Medium */
         .priority-4 { border-left: 4px solid #198754; } /* Low */
         .priority-5 { border-left: 4px solid #0dcaf0; } /* Appointment */
+        .priority-6 { border-left: 4px solid #0dcaf0; } /* Appointment(Booked) */
         .user-info {
             background-color: #f8f9fa;
             padding: 15px;
@@ -108,6 +109,7 @@
                                     <option value="3" selected>Medium</option>
                                     <option value="4">Low</option>
                                     <option value="5">Appointment</option>
+                                    <option value="6">Appointment (Booked)</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -155,6 +157,7 @@
                                     <option value="3">Medium</option>
                                     <option value="4">Low</option>
                                     <option value="5">Appointment</option>
+                                    <option value="6">Appointment (Booked)</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -272,12 +275,19 @@
                 
                 if (filter === 'all') {
                     $('.task-card').show();
+                    $('.task-card.completed').hide();
+                    $('.task-card.priority-5').hide();
+                    $('.task-card.priority-6').hide();
                 } else if (filter === 'pending') {
                     $('.task-card').show();
                     $('.task-card.completed').hide();
+                    $('.task-card.priority-5').hide();
+                    $('.task-card.priority-6').hide();
                 } else if (filter === 'completed') {
                     $('.task-card').hide();
                     $('.task-card.completed').show();
+                    $('.task-card.priority-5').hide();
+                    $('.task-card.priority-6').hide();
                 }
             });
             
