@@ -45,6 +45,7 @@
                 <h1 class="mb-3">Task Management System - Calendar</h1>
                 <div class="user-info">
                     <h4 id="userGreeting">Welcome!</h4>
+                    <p id="currentDate" class="text-muted"></p>
                 </div>
             </div>
         </div>
@@ -143,6 +144,11 @@
             
             let calendar;
             let currentUserId = '';
+
+            // Display current date
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            $('#currentDate').text(today.toLocaleDateString('en-US', options));
 
             // Helper functions for date formatting
             function formatDateForDisplay(dateStr) {
