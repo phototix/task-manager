@@ -198,6 +198,17 @@
             const filterAllTasks = document.getElementById('filterAllTasks');
             const filterPendingTasks = document.getElementById('filterPendingTasks');
             const filterCompletedTask = document.getElementById('filterCompletedTask');
+            const curentFilterTasks = document.getElementById('curentFilterTasks').value;
+
+            $('#filterAllTasks').click(function() {
+                curentFilterTasks = "all";
+            });
+            $('#filterPendingTasks').click(function() {
+                curentFilterTasks = "pending";
+            });
+            $('#filterCompletedTask').click(function() {
+                curentFilterTasks = "completed";
+            });
             
             if (!userId) {
                 alert('User ID is required in the URL parameter (e.g., ?user_id=123)');
@@ -416,6 +427,15 @@
                         }
                         
                         $('#tasksContainer').html(html);
+                        if(curentFilterTasks=="all"){
+                            filterAllTasks.click();
+                        }
+                        if(curentFilterTasks=="pending"){
+                            filterPendingTasks.click();
+                        }
+                        if(curentFilterTasks=="completed"){
+                            filterCompletedTask.click();
+                        }
                     },
                     error: function(xhr, status, error) {
                         $('#tasksContainer').html(`<div class="alert alert-danger">Error loading tasks: ${error}</div>`);
@@ -449,5 +469,6 @@
             }
         });
     </script>
+    <input type="hidden" id="curentFilterTasks" value="pending">
 </body>
 </html>
