@@ -24,7 +24,7 @@
         .priority-2 { background-color: #fd7e14; border-color: #fd7e14; } /* High */
         .priority-3 { background-color: #ffc107; border-color: #ffc107; color: #212529; } /* Medium */
         .priority-4 { background-color: #0d6efd; border-color: #0d6efd; } /* Low */
-        .priority-5 { background-color: #6c757d; border-color: #6c757d; } /* Optional */
+        .priority-5 { background-color: #6c757d; border-color: #6c757d; } /* Appointment */
         .completed-task {
             text-decoration: line-through;
             opacity: 0.7;
@@ -101,7 +101,7 @@
                                 <option value="2">High</option>
                                 <option value="3">Medium</option>
                                 <option value="4">Low</option>
-                                <option value="5">Optional</option>
+                                <option value="5">Appointment</option>
                             </select>
                         </div>
                         <div class="mb-3">
