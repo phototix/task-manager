@@ -25,6 +25,7 @@
             text-decoration: line-through;
             color: #6c757d;
         }
+        .priority-0 { border-left: 4px solid #6610f2; } /* General */
         .priority-1 { border-left: 4px solid #dc3545; } /* Urgent */
         .priority-2 { border-left: 4px solid #fd7e14; } /* High */
         .priority-3 { border-left: 4px solid #ffc107; } /* Medium */
@@ -101,6 +102,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="taskPriority" class="form-label">Priority</label>
                                 <select class="form-select" id="taskPriority">
+                                    <option value="0">General</option>
                                     <option value="1">Urgent</option>
                                     <option value="2">High</option>
                                     <option value="3" selected>Medium</option>
@@ -147,6 +149,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="editTaskPriority" class="form-label">Priority</label>
                                 <select class="form-select" id="editTaskPriority">
+                                    <option value="0">General</option>
                                     <option value="1">Urgent</option>
                                     <option value="2">High</option>
                                     <option value="3">Medium</option>
@@ -420,6 +423,7 @@
             // Helper functions
             function getPriorityText(priority) {
                 const priorities = {
+                    0: 'General',
                     1: 'Urgent',
                     2: 'High',
                     3: 'Medium',
@@ -431,6 +435,7 @@
             
             function getPriorityBadgeClass(priority) {
                 const classes = {
+                    0: 'bg-secondary',
                     1: 'bg-danger',
                     2: 'bg-warning text-dark',
                     3: 'bg-info text-dark',
