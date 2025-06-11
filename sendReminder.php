@@ -5,8 +5,16 @@ if (!isset($argv[1])) {
 
 $taskID = intval($argv[1]);
 
+// Include DB config
 require 'config/database.php';
 
+// Create DB connection
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error . "\n");
+}
+
+// Fetch task
 $sql = "SELECT * FROM daily_tasks WHERE id = $taskID";
 $result = $conn->query($sql);
 
@@ -18,7 +26,8 @@ $task = $result->fetch_assoc();
 
 $payload = json_encode($task);
 
-$webhookUrl = "https://n8n.brandon.my/webhook-test/8372396e-90e2-4078-9ca8-c7d49bf19e31";
+// Send to webhook
+$webhookUrl = "https://n8n.brandon.my/webhook/8372396e-90e2-4078-9ca8-c7d49bf19e31";
 
 $ch = curl_init($webhookUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -33,3 +42,4 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 echo "Sent: " . $payload . "\n";
+?>
