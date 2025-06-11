@@ -65,7 +65,7 @@ switch ($method) {
         $dateTime = DateTime::createFromFormat('h:i A', $timeString);
         
         // Extract hour and minute
-        $data['hour'] = $dateTime->format('G'); // 24-hour format without leading zeros (9)
+        $data['hour'] = $dateTime->format('H'); // 24-hour format without leading zeros (9)
         $data['minute'] = $dateTime->format('i'); // Minutes with leading zeros (00)
         
         // Or if you want hour with leading zeros (09):
