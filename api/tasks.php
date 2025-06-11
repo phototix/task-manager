@@ -59,9 +59,21 @@ switch ($method) {
         $stmt->bindParam(':time', $data['time']);
         $stmt->bindParam(':task_date', date('Y-m-d'));
 
-        if (isset(data['minute'])&&isset(data['hour'])) {
+        $timeString = $data['time']; // Your input time string
+
+        // Create DateTime object from the time string
+        $dateTime = DateTime::createFromFormat('h:i A', $timeString);
+        
+        // Extract hour and minute
+        $data['hour'] = $dateTime->format('G'); // 24-hour format without leading zeros (9)
+        $data['minute'] = $dateTime->format('i'); // Minutes with leading zeros (00)
+        
+        // Or if you want hour with leading zeros (09):
+        // $hour = $dateTime->format('H');
+
+        if ($data['minute']<>""&&$data['hour']<>"") {
             // Add to crontab
-            $cronCmd = "{$input['minute']} {$input['hour']} * * * php /var/www/task-manager/sendReminder.php?taskID={$taskId}";
+            $cronCmd = "{$data['minute']} {$data['hour']} * * * php /var/www/task-manager/sendReminder.php?taskID={$taskId}";
             exec("(crontab -l 2>/dev/null; echo \"{$cronCmd}\") | crontab -");
         }
         
