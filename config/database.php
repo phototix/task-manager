@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-$db_host = 'localhost';
-$db_name = 'your_database_name';
-$db_user = 'your_database_user';
-$db_pass = 'your_database_password';
+$db_host = 'db.gateway.01.webbypage.com';
+$db_name = 'daily_coach';
+$db_user = 'webbycms';
+$db_pass = '#Abccy1982#';
