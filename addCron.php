@@ -12,6 +12,8 @@ $protectedCronJobs = [
     "15 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --off && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --off"
 ];
 
+$Today = date('Y-m-d');
+
 // 2. Get current crontab and filter out our task reminders
 exec('crontab -l', $currentCrontabLines);
 $preservedLines = [];
@@ -41,7 +43,7 @@ foreach ($currentCrontabLines as $line) {
 }
 
 // 3. Get all tasks with time values from database
-$stmt = $pdo->prepare("SELECT id, time FROM daily_tasks WHERE time IS NOT NULL AND time != '' AND is_completed='0' AND priority < '5'");
+$stmt = $pdo->prepare("SELECT id, time FROM daily_tasks WHERE task_date = '$Today' AND time IS NOT NULL AND time != '' AND is_completed='0' AND priority < '5'");
 $stmt->execute();
 $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
