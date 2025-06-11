@@ -59,7 +59,7 @@ switch ($method) {
         $stmt->bindParam(':time', $data['time']);
         $stmt->bindParam(':task_date', date('Y-m-d'));
 
-        if (isset($input['minute'])&&isset($input['hour'])) {
+        if (isset(data['minute'])&&isset(data['hour'])) {
             // Add to crontab
             $cronCmd = "{$input['minute']} {$input['hour']} * * * php /var/www/task-manager/sendReminder.php?taskID={$taskId}";
             exec("(crontab -l 2>/dev/null; echo \"{$cronCmd}\") | crontab -");
