@@ -340,7 +340,7 @@
                         $('#editTaskId').val(task.id);
                         $('#editTaskDescription').val(task.task_description);
                         $('#editTaskPriority').val(task.priority);
-                        $('#editTaskDate').val(task.task_date);
+                        $('#editTaskDate').val(formatDateForDisplay(task.task_date));
                         $('#editTaskTime').val(task.time);
                         $('#editTaskRemarks').val(task.remarks);
                         $('#editTaskCompleted').prop('checked', task.is_completed == 1);
@@ -360,6 +360,7 @@
                     task_description: $('#editTaskDescription').val(),
                     priority: $('#editTaskPriority').val(),
                     time: $('#editTaskTime').val(),
+                    task_date: $('#editTaskDate').val(),
                     remarks: $('#editTaskRemarks').val(),
                     is_completed: $('#editTaskCompleted').is(':checked') ? 1 : 0
                 };
