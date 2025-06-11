@@ -421,6 +421,7 @@
                                             </div>
                                             <div class="flex-grow-1 mx-3">
                                                 <p class="card-text task-description mb-1">${task.task_description}</p>
+                                                ${dateDisplay}
                                                 ${timeDisplay}
                                                 ${task.remarks ? `<p class="text-muted small mt-2 mb-0">${task.remarks}</p>` : ''}
                                             </div>
