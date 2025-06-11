@@ -43,7 +43,7 @@
     <div class="container py-4">
         <div class="row mb-4">
             <div class="col-md-8 mx-auto text-center">
-                <h1 class="mb-3">Task Management - Calendar</h1>
+                <h1 class="mb-3"><img src="list.png" style="height:20px;"> Task Management - Calendar</h1>
                 <div class="user-info">
                     <h4 id="userGreeting">Welcome!</h4>
                     <p id="currentDate" class="text-muted"></p>
