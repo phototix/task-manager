@@ -464,7 +464,7 @@
                     2: 'High',
                     3: 'Medium',
                     4: 'Low',
-                    5: 'Appointment'
+                    5: 'Appointment',
                     6: 'Appointment (Booked)'
                 };
                 return priorities[priority] || 'Medium';
