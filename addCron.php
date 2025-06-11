@@ -62,7 +62,7 @@ foreach ($tasks as $task) {
     $hour = date('G', $timestamp);    // 24-hour without leading zeros
     $minute = date('i', $timestamp);  // Minutes with leading zeros
     
-    $newCrontab[] = "$minute $hour * * * php /var/www/task.brandon.my/sendReminder.php?taskID={$task['id']}";
+    $newCrontab[] = "$minute $hour * * * php /var/www/task.brandon.my/sendReminder.php {$task['id']}";
 }
 
 // 5. Save the new crontab
