@@ -2,11 +2,6 @@
 // Database connection
 $pdo = new PDO('mysql:host=db.gateway.01.webbypage.com;dbname=daily_coach', 'webbycms', '#Abccy1982#');
 
-// Get all tasks with time values
-$stmt = $pdo->prepare("SELECT id, time FROM daily_tasks WHERE time IS NOT NULL AND time != ''");
-$stmt->execute();
-$tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 // 1. Define the existing cron jobs that must be preserved
 $protectedCronJobs = [
     "0 9 * * * php /home/ubuntu/dailydose.php",
@@ -45,7 +40,7 @@ foreach ($currentCrontabLines as $line) {
 }
 
 // 3. Get all tasks with time values from database
-$stmt = $pdo->prepare("SELECT id, time FROM daily_tasks WHERE time IS NOT NULL AND time != '' AND is_completed=0");
+$stmt = $pdo->prepare("SELECT id, time FROM daily_tasks WHERE time IS NOT NULL AND time != '' AND is_completed='0' AND priority < '5'");
 $stmt->execute();
 $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
