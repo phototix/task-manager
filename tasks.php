@@ -407,6 +407,7 @@
                                 const priorityClass = `priority-${task.priority}`;
                                 const completedClass = task.is_completed == 1 ? 'completed' : '';
                                 const priorityText = getPriorityText(task.priority);
+                                const dateDisplay = task.task_date ? `<small class="text-muted"><i class="far fa-calendar me-1"></i>${task.task_date}</small>` : '';
                                 const timeDisplay = task.time ? `<small class="text-muted"><i class="far fa-clock me-1"></i>${task.time}</small>` : '';
                                 
                                 html += `
