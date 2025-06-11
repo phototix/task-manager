@@ -29,6 +29,12 @@
             text-decoration: line-through;
             opacity: 0.7;
         }
+        .user-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
         #taskModal .priority-badge {
             display: inline-block;
             padding: 0.25em 0.4em;
