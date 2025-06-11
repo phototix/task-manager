@@ -62,7 +62,7 @@ foreach ($tasks as $task) {
         continue;
     }
     
-    $hour = date('g', $timestamp);    // 24-hour without leading zeros
+    $hour = date('G', $timestamp);    // 24-hour without leading zeros
     $minute = (int)date('i', $timestamp);  // Minutes with leading zeros
     
     $newCrontab[] = "$minute $hour * * * php /var/www/task.brandon.my/sendReminder.php {$task['id']}";
