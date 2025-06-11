@@ -58,6 +58,12 @@ switch ($method) {
         $stmt->bindParam(':remarks', $data['remarks']);
         $stmt->bindParam(':time', $data['time']);
         $stmt->bindParam(':task_date', date('Y-m-d'));
+
+        if (isset($input['minute'])&&isset($input['hour'])) {
+            // Add to crontab
+            $cronCmd = "{$input['minute']} {$input['hour']} * * * php /var/www/task-manager/sendReminder.php?taskID={$taskId}";
+            exec("(crontab -l 2>/dev/null; echo \"{$cronCmd}\") | crontab -");
+        }
         
         if ($stmt->execute()) {
             echo json_encode(['success' => true, 'id' => $db->lastInsertId()]);
