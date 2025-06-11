@@ -113,6 +113,14 @@
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
+                                <label for="taskDate" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="taskDate" lang="en-GB" 
+                                placeholder="DD/MM/YYYY" 
+                                pattern="\d{2}/\d{2}/\d{4}" 
+                                title="Please enter date in DD/MM/YYYY format" 
+                                required>
+                            </div>
+                            <div class="col-md-6 mb-3">
                                 <label for="taskTime" class="form-label">Time (optional)</label>
                                 <input type="time" class="form-control" id="taskTime">
                             </div>
@@ -159,6 +167,14 @@
                                     <option value="5">Appointment</option>
                                     <option value="6">Appointment (Booked)</option>
                                 </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="editTaskDate" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="editTaskDate" lang="en-GB" 
+                                placeholder="DD/MM/YYYY" 
+                                pattern="\d{2}/\d{2}/\d{4}" 
+                                title="Please enter date in DD/MM/YYYY format" 
+                                required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="editTaskTime" class="form-label">Time (optional)</label>
@@ -228,6 +244,26 @@
             
             // Load tasks
             loadTasks();
+
+            // Helper functions for date formatting
+            function formatDateForDisplay(dateStr) {
+                if (!dateStr) return '';
+                const date = new Date(dateStr);
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const year = date.getFullYear();
+                return `${year}-${month}-${day}`;
+            }
+
+            function formatDateForStorage(dateStr) {
+                if (!dateStr) return '';
+                // Convert from DD/MM/YYYY to YYYY-MM-DD
+                const parts = dateStr.split('/');
+                if (parts.length === 3) {
+                    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+                }
+                return dateStr; // fallback
+            }
 
             // Add task modal
             let addTaskModal = new bootstrap.Modal(document.getElementById('addTaskModal'));
@@ -304,6 +340,7 @@
                         $('#editTaskId').val(task.id);
                         $('#editTaskDescription').val(task.task_description);
                         $('#editTaskPriority').val(task.priority);
+                        $('#editTaskDate').val(task.task_date);
                         $('#editTaskTime').val(task.time);
                         $('#editTaskRemarks').val(task.remarks);
                         $('#editTaskCompleted').prop('checked', task.is_completed == 1);
