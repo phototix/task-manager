@@ -465,6 +465,7 @@
                     3: 'Medium',
                     4: 'Low',
                     5: 'Appointment'
+                    6: 'Appointment (Booked)'
                 };
                 return priorities[priority] || 'Medium';
             }
@@ -476,7 +477,8 @@
                     2: 'bg-warning text-dark',
                     3: 'bg-info text-dark',
                     4: 'bg-success',
-                    5: 'bg-primary'
+                    5: 'bg-primary',
+                    6: 'bg-primary'
                 };
                 return classes[priority] || 'bg-secondary';
             }
