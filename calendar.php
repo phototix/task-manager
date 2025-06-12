@@ -18,7 +18,7 @@
         .fc-event {
             cursor: pointer;
         }
-        .priority-0 { background-color: #6610f2; border-color: #6610f2; } /* General - Purple */
+        .priority-0 { background-color: #6610f2; border-color: #6610f2; color: #FFF; } /* General - Purple */
         .priority-1 { background-color: #dc3545; border-color: #dc3545; } /* Urgent */
         .priority-2 { background-color: #fd7e14; border-color: #fd7e14; } /* High */
         .priority-3 { background-color: #ffc107; border-color: #ffc107; color: #212529; } /* Medium */
