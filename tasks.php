@@ -265,6 +265,40 @@
                 return dateStr; // fallback
             }
 
+            /**
+             * Fetch user details from contacts API
+             * @param {string} userId 
+             * @returns {Promise} Promise with user details
+             */
+            function fetchUserDetails(userId) {
+                return new Promise((resolve, reject) => {
+                    
+                    // Make API request
+                    $.ajax({
+                        url: `api/contact.php?user_id=${userId}`,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(response) {
+                            if (response.success) {
+                                resolve(response.data);
+                            } else {
+                                reject(response.message || 'Failed to fetch user details');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            reject(error);
+                        }
+                    });
+                });
+            }
+
+            initUserDetails();
+            
+            // Usage example
+            $(document).ready(function() {
+                
+            });            
+
             // Add task modal
             let addTaskModal = new bootstrap.Modal(document.getElementById('addTaskModal'));
             $(document).on('click', '.add-task-btn', function() {
@@ -492,6 +526,31 @@
                         $('#tasksContainer').html(`<div class="alert alert-danger">Error loading tasks: ${error}</div>`);
                     }
                 });
+            }
+                
+            function initUserDetails() {
+                const userId = urlParams.get('user_id');
+                
+                if (userId) {
+                    fetchUserDetails(userId)
+                        .then(user => {
+                            // Update UI with user details
+                            $('#userGreeting').text(`Welcome, ${user.name || 'User'}!`);
+                            
+                            // Set language preference
+                            if (user.language) {
+                                // Implement language switching if needed
+                                console.log('User language:', user.language);
+                            }
+                            
+                            // Use other user details as needed
+                            console.log('User details:', user);
+                        })
+                        .catch(error => {
+                            console.error('Error loading user details:', error);
+                            $('#userGreeting').text(`Welcome, User ${userId}!`);
+                        });
+                }
             }
             
             // Helper functions
