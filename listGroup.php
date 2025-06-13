@@ -57,7 +57,14 @@ $data = json_decode($response, true);
             $groupId = $group['id']['_serialized'] ?? '';
             $groupName = htmlspecialchars($group['name'] ?? 'N/A');
             $groupDesc = nl2br(htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description'));
-            $groupPic = $group['groupMetadata']['picture'] ?? $groupPic = 'https://whatsapp-waha.brandon.my/api/default/groups/' . urlencode($groupId) . '/picture?refresh=false';
+            $picApi = 'https://whatsapp-waha.brandon.my/api/default/groups/' . urlencode($groupId) . '/picture?refresh=false';
+            $picCh = curl_init($picApi);
+            curl_setopt($picCh, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($picCh, CURLOPT_HTTPHEADER, ['accept: application/json']);
+            $picResponse = curl_exec($picCh);
+            curl_close($picCh);
+            $picData = json_decode($picResponse, true);
+            $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtinnHtzDiy/download';
         ?>
             <div class="card group-card shadow-sm">
                 <div class="card-body position-relative">
