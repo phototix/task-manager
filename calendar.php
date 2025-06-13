@@ -190,7 +190,7 @@
                     
                     // Make API request
                     $.ajax({
-                        url: `api/contact.php?user_id=${userId}`,
+                        url: `/api/contact.php?user_id=${userId}`,
                         type: 'GET',
                         dataType: 'json',
                         success: function(response) {
