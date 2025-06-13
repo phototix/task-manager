@@ -56,7 +56,7 @@ $data = json_decode($response, true);
         <?php foreach ($data as $group): 
             $groupId = $group['id']['_serialized'] ?? '';
             $groupName = htmlspecialchars($group['name'] ?? 'N/A');
-            $groupDesc = nl2br(htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description'))
+            $groupDesc = nl2br(htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description'));
             $groupPic = $group['groupMetadata']['picture'] ?? 'https://via.placeholder.com/50';
         ?>
             <div class="card group-card shadow-sm">
