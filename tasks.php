@@ -44,7 +44,7 @@
     <div class="container py-4">
         <div class="row mb-4">
             <div class="col-md-8 mx-auto text-center">
-                <h1 class="mb-3"><img src="list.png" style="height:20px;"> Task Management</h1>
+                <h1 class="mb-3"><img src="list.png" style="height:20px;">  <span id="appTitle">Task Management</span></h1>
                 <div class="user-info">
                     <h4 id="userGreeting">Welcome!</h4>
                     <p id="currentDate" class="text-muted"></p>
@@ -541,6 +541,12 @@
                             if (user.language) {
                                 // Implement language switching if needed
                                 console.log('User language:', user.language);
+                            }
+
+                            if （user.type=="personal"）{
+                                $('#appTitle').text(`Personal Task Management`);
+                            }else{
+                                $('#appTitle').text(`Group Task Management`);
                             }
                             
                             // Use other user details as needed
