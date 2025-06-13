@@ -364,7 +364,7 @@
             }
                 
             function initUserDetails() {
-                const userId = urlParams.get('user_id');
+                const userId = document.getElementById('userIdInput').value;
                 
                 if (userId) {
                     fetchUserDetails(userId)
