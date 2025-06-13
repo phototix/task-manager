@@ -57,7 +57,7 @@ $data = json_decode($response, true);
             $groupId = $group['id']['_serialized'] ?? '';
             $groupName = htmlspecialchars($group['name'] ?? 'N/A');
             $groupDesc = nl2br(htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description'));
-            $groupPic = $group['groupMetadata']['picture'] ?? 'https://via.placeholder.com/50';
+            $groupPic = $group['groupMetadata']['picture'] ?? $groupPic = 'https://whatsapp-waha.brandon.my/api/default/groups/' . urlencode($groupId) . '/picture?refresh=false';
         ?>
             <div class="card group-card shadow-sm">
                 <div class="card-body position-relative">
