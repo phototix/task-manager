@@ -53,6 +53,11 @@ $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtin
         .description {
             white-space: pre-wrap;
         }
+        .manage-task-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
         .edit-btn {
             position: absolute;
             top: 10px;
@@ -82,7 +87,7 @@ $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtin
                     <i class="bi bi-pencil"></i> Edit
                 </button>
                 <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
-                    <button class="btn btn-sm btn-outline-primary">Manage Tasks</button>
+                    <button class="btn btn-sm btn-outline-primary manage-task-btn">Manage Tasks</button>
                 </a>
                 <div class="d-flex align-items-center mb-3">
                     <img src="<?= htmlspecialchars($groupPic) ?>" class="group-avatar" alt="Group Picture">
