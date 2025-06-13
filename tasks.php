@@ -58,6 +58,14 @@
                 <a href="/index.php/calendar?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
                     <button class="btn btn-warning"><i class="fas fa-calendar me-2"></i>Calendar</button>
                 </a>
+                <?php
+                $isGroup = isset($_GET['user_id']) && strpos($_GET['user_id'], '@g.us') !== false;
+                if($isGroup==true){
+                ?>
+                <a href="/index.php/manageGroup?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
+                    <button class="btn btn-warning"><i class="fas fa-users me-2"></i>ManageGroup</button>
+                </a>
+                <?php } ?>
             </div>
         </div>
 
