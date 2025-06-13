@@ -13,7 +13,7 @@ $clean_uri = rtrim($clean_uri, '/');
 switch ($clean_uri) {
     case '/index.php/manageGroup':
         // Load the calendar page
-        require_once BASE_PATH . '/calendar.php';
+        require_once BASE_PATH . '/manageGroup.php';
         break;
     case '/index.php/calendar':
         // Load the calendar page

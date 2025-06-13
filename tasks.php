@@ -63,7 +63,7 @@
                 if($isGroup==true){
                 ?>
                 <a href="/index.php/manageGroup?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
-                    <button class="btn btn-warning"><i class="fas fa-users me-2"></i>ManageGroup</button>
+                    <button class="btn btn-warning" style="margin-left:10px;"><i class="fas fa-users me-2"></i>ManageGroup</button>
                 </a>
                 <?php } ?>
             </div>
