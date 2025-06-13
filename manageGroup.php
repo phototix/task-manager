@@ -105,13 +105,16 @@ $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtin
 <script>
 // Same JS as original list page
 let currentGroupId = '';
-document.getElementById('editGroupModal').addEventListener('show.bs.modal', function(event) {
-    const button = event.relatedTarget;
-    currentGroupId = button.getAttribute('data-groupid');
-    document.getElementById('currentGroupPic').src = button.getAttribute('data-grouppic');
-    document.getElementById('newGroupPic').value = button.getAttribute('data-grouppic');
-    document.getElementById('newGroupDesc').value = button.getAttribute('data-groupdesc');
-});
+const editModal = document.getElementById('editGroupModal');
+if (editModal) {
+    editModal.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;
+        currentGroupId = button.getAttribute('data-groupid');
+        document.getElementById('currentGroupPic').src = button.getAttribute('data-grouppic');
+        document.getElementById('newGroupPic').value = button.getAttribute('data-grouppic');
+        document.getElementById('newGroupDesc').value = button.getAttribute('data-groupdesc');
+    });
+}
 
 function updateGroupPicture() {
     const newPicUrl = document.getElementById('newGroupPic').value;
