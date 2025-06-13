@@ -81,7 +81,9 @@ $data = json_decode($response, true);
                     <div class="d-flex align-items-center mb-3">
                         <img src="<?= htmlspecialchars($groupPic) ?>" class="group-avatar" alt="Group Picture">
                         <div>
-                            <h5 class="card-title group-title mb-0"><?= $groupName ?></h5>
+                            <a href="index.php/manageGroup?user_id=<?= $groupId ?>">
+                                <h5 class="card-title group-title mb-0"><?= $groupName ?></h5>
+                            </a>
                             <small class="text-muted"><?= htmlspecialchars($groupId) ?></small>
                         </div>
                     </div>
