@@ -81,8 +81,8 @@ $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtin
                         data-grouppic="<?= htmlspecialchars($groupPic) ?>">
                     <i class="bi bi-pencil"></i> Edit
                 </button>
-                <a href="/">
-                    <button class="btn btn-sm btn-outline-primary">Tasks</button>
+                <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
+                    <button class="btn btn-sm btn-outline-primary">Manage Tasks</button>
                 </a>
                 <div class="d-flex align-items-center mb-3">
                     <img src="<?= htmlspecialchars($groupPic) ?>" class="group-avatar" alt="Group Picture">
