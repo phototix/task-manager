@@ -35,8 +35,6 @@ $data = json_decode($response, true);
         .description {
             white-space: pre-wrap;
         }
-<<<<<<< HEAD
-=======
         .edit-btn {
             position: absolute;
             top: 10px;
@@ -49,7 +47,6 @@ $data = json_decode($response, true);
             object-fit: cover;
             margin-right: 15px;
         }
->>>>>>> 7b827616408d69612d70bd67155c05c5a8dff0e8
     </style>
 </head>
 <body>
@@ -63,13 +60,6 @@ $data = json_decode($response, true);
             $groupPic = $group['groupMetadata']['picture'] ?? 'https://via.placeholder.com/50';
         ?>
             <div class="card group-card shadow-sm">
-<<<<<<< HEAD
-                <div class="card-body">
-                    <h5 class="card-title group-title"><?= htmlspecialchars($group['name'] ?? 'N/A') ?></h5>
-                    <p><strong>Group ID:</strong> <?= htmlspecialchars($group['id']['_serialized'] ?? 'N/A') ?></p>
-                    <p class="description"><strong>Description:</strong><br><?= nl2br(htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description')) ?></p>
-                    <h6>Participants:</h6>
-=======
                 <div class="card-body position-relative">
                     <button class="btn btn-sm btn-outline-primary edit-btn" 
                             data-bs-toggle="modal" 
@@ -91,7 +81,6 @@ $data = json_decode($response, true);
                     
                     <p class="description"><strong>Description:</strong><br><?= $groupDesc ?></p>
                     <h6>Participants (<?= count($group['groupMetadata']['participants'] ?? []) ?>):</h6>
->>>>>>> 7b827616408d69612d70bd67155c05c5a8dff0e8
                     <ul class="list-group">
                         <?php foreach ($group['groupMetadata']['participants'] ?? [] as $p): ?>
                             <li class="list-group-item participant">
