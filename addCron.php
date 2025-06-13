@@ -7,6 +7,7 @@ $protectedCronJobs = [
     "0 9 * * * php /home/ubuntu/dailydose.php",
     "0 5 * * * /home/ubuntu/backup_database.sh",
     "* * * * * php /var/www/task.brandon.my/addCron.php",
+    "* * * * * php /var/www/task.brandon.my/updateGroup.php",
     "50 2 * * * php -f /var/www/cloud.i-dc.institute/occ files:scan --all && php -f /var/www/cloud.webbypage.com/occ files:scan --all",
     "0 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --on && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --on",
     "15 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --off && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --off"
