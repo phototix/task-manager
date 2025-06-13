@@ -55,8 +55,8 @@ $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtin
         }
         .manage-task-btn {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            right: 10px;
+            top: calc(10px + var(--edit-btn-height, 38px) + 8px); /* 8px margin below */
         }
         .edit-btn {
             position: absolute;
@@ -252,6 +252,14 @@ function updateGroupDescription() {
         alert('Error updating group description: ' + error.message);
     });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const editBtn = document.querySelector('.edit-btn');
+    if (editBtn) {
+        document.documentElement.style.setProperty('--edit-btn-height', editBtn.offsetHeight + 'px');
+    }
+});
+
 </script>
 </body>
 </html>
