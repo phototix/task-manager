@@ -378,7 +378,7 @@
                                 console.log('User language:', user.language);
                             }
 
-                            if （user.type=="personal"）{
+                            if (user.type=="personal"){
                                 $('#appTitle').text(`Personal Task Management`);
                             }else{
                                 $('#appTitle').text(`Group Task Management`);
