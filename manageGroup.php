@@ -69,11 +69,28 @@ $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtin
             </div>
             
             <p class="description"><strong>Description:</strong><br><?= $groupDesc ?></p>
-            <h6>Participants (<?= count($group['groupMetadata']['participants'] ?? []) ?>):</h6>
+            <?php
+            $participants = $group['groupMetadata']['participants'] ?? [];
+            ?>
+            <h6>Participants (<?= count($participants) ?>):</h6>
             <ul class="list-group">
-                <?php foreach ($group['groupMetadata']['participants'] ?? [] as $p): ?>
-                    <li class="list-group-item participant"><?= htmlspecialchars($p['id']['_serialized']) ?></li>
-                <?php endforeach; ?>
+            <?php foreach ($participants as $p): 
+                $participantId = $p['id']['_serialized'];
+                $infoUrl = 'https://whatsapp-waha.brandon.my/api/contacts?contactId=' . urlencode($participantId) . '&session=default';
+                $infoCh = curl_init($infoUrl);
+                curl_setopt($infoCh, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($infoCh, CURLOPT_HTTPHEADER, ['accept: */*']);
+                $infoResp = curl_exec($infoCh);
+                curl_close($infoCh);
+                $contact = json_decode($infoResp, true);
+                $name = htmlspecialchars($contact['name'] ?? 'Unknown');
+                $isBusiness = !empty($contact['isBusiness']) ? 'Business' : 'Person';
+            ?>
+                <li class="list-group-item participant">
+                    <strong><?= $name ?></strong><br>
+                    <small><?= htmlspecialchars($participantId) ?> | <?= $isBusiness ?></small>
+                </li>
+            <?php endforeach; ?>
             </ul>
         </div>
     </div>
