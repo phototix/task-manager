@@ -32,6 +32,9 @@ $data = json_decode($response, true);
         .participant {
             font-family: monospace;
         }
+        .description {
+            white-space: pre-wrap;
+        }
     </style>
 </head>
 <body>
@@ -44,6 +47,7 @@ $data = json_decode($response, true);
                 <div class="card-body">
                     <h5 class="card-title group-title"><?= htmlspecialchars($group['name'] ?? 'N/A') ?></h5>
                     <p><strong>Group ID:</strong> <?= htmlspecialchars($group['id']['_serialized'] ?? 'N/A') ?></p>
+                    <p class="description"><strong>Description:</strong><br><?= nl2br(htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description')) ?></p>
                     <h6>Participants:</h6>
                     <ul class="list-group">
                         <?php foreach ($group['groupMetadata']['participants'] ?? [] as $p): ?>
