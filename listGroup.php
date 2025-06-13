@@ -56,7 +56,7 @@ $data = json_decode($response, true);
         <?php foreach ($data as $group): 
             $groupId = $group['id']['_serialized'] ?? '';
             $groupName = htmlspecialchars($group['name'] ?? 'N/A');
-            $groupDesc = nl2br(htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description'));
+            $groupDesc = htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description');
             $picApi = 'https://whatsapp-waha.brandon.my/api/default/groups/' . urlencode($groupId) . '/picture?refresh=false';
             $picCh = curl_init($picApi);
             curl_setopt($picCh, CURLOPT_RETURNTRANSFER, true);
