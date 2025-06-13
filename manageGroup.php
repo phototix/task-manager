@@ -92,7 +92,7 @@ $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtin
                     </div>
                 </div>
                 
-                <p class="description"><strong>Description:</strong><br><?= nl2br(htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description')) ?></p>
+                <p class="description"><strong>Description:</strong><br><?= htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description') ?></p>
                 <h6>Participants (<?= count($group['groupMetadata']['participants'] ?? []) ?>):</h6>
                 <ul class="list-group">
                     <?php foreach ($group['groupMetadata']['participants'] ?? [] as $p): ?>
