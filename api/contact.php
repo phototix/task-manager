@@ -6,31 +6,13 @@ require_once '../config/database.php';
 $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Secret key for timekey validation
-$secretKey = "webbycms";
-
-// Function to validate timekey
-function isValidTimeKey($providedKey, $secretKey) {
-    $currentHour = date('Y-m-d H:00:00');
-    $expectedKey = md5($secretKey . $currentHour);
-    return hash_equals($expectedKey, $providedKey);
-}
-
 // Get request parameters
 $userId = $_GET['user_id'] ?? null;
-$timekey = $_GET['timekey'] ?? null;
 
 // Validate required parameters
-if (!$userId || !$timekey) {
+if (!$userId) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'user_id and timekey are required']);
-    exit;
-}
-
-// Validate timekey
-if (!isValidTimeKey($timekey, $secretKey)) {
-    http_response_code(401);
-    echo json_encode(['success' => false, 'message' => 'Invalid timekey']);
+    echo json_encode(['success' => false, 'message' => 'user_id are required']);
     exit;
 }
 
