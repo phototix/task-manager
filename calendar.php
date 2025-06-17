@@ -62,18 +62,22 @@
                     <span class="input-group-text" style="display:none;">User ID</span>
                     <input type="text" class="form-control" id="userIdInput" value="<?php echo $_GET['user_id'] ?? ''; ?>" style="display:none;">
                     <button class="btn btn-success" id="loadCalendarBtn" style="display:none;">Load Calendar</button>
+
                     <button class="btn btn-primary" id="addTaskBtn"><i class="fas fa-plus me-2"></i>Add New Task</button> 
+
                     <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>" style="margin-left:10px;">
                         <button class="btn btn-warning"><i class="fas fa-list me-2"></i>Tasks List</button>
                     </a>
+
                     <?php
                     $isGroup = isset($_GET['user_id']) && strpos($_GET['user_id'], '@g.us') !== false;
                     if($isGroup==true){
                     ?>
                     <a href="/index.php/manageGroup?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
-                        <button class="btn btn-warning" style="margin-left:10px;"margin-top:10px;"><i class="fas fa-users me-2"></i>ManageGroup</button>
+                        <button class="btn btn-warning" style="margin-left:10px;margin-top:10px;"><i class="fas fa-users me-2"></i>ManageGroup</button>
                     </a>
                     <?php } ?>
+                    
                 </div>
             </div>
         </div>
