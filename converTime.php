@@ -1,18 +1,21 @@
 <?php
-// Enable error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Include your DB config
-require_once 'config/database.php'; // Make sure this has $mysqli = new mysqli(...);
+// Create your own mysqli connection here, without touching database.php
+$db_host = 'db.gateway.01.webbypage.com';
+$db_name = 'daily_coach';
+$db_user = 'webbycms';
+$db_pass = '#Abccy1982#';
 
-// Connect to database
-if ($mysqli->connect_errno) {
-    die("Failed to connect to MySQL: " . $mysqli->connect_error);
+$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+if ($mysqli->connect_error) {
+    die('Database connection failed: ' . $mysqli->connect_error);
 }
 
-// Fetch all tasks
-$query = "SELECT id, time FROM daily_tasks";
+// Fetch tasks
+$query = "SELECT id, task_time FROM daily_tasks";
 $result = $mysqli->query($query);
 
 if (!$result) {
@@ -23,19 +26,18 @@ while ($row = $result->fetch_assoc()) {
     $id = $row['id'];
     $taskTime12 = $row['task_time'];
 
-    // Convert to 24-hour format
+    // Convert 12-hour to 24-hour format
     $dateTime = DateTime::createFromFormat('h:i A', $taskTime12);
     if ($dateTime) {
         $taskTime24 = $dateTime->format('H:i');
 
-        // Optional: update back into the table
         $update = $mysqli->prepare("UPDATE daily_tasks SET task_time = ? WHERE id = ?");
         $update->bind_param("si", $taskTime24, $id);
         $update->execute();
 
-        echo "Task ID $id: '$taskTime12' converted to '$taskTime24'\n";
+        echo "Task ID $id: $taskTime12 → $taskTime24\n";
     } else {
-        echo "Task ID $id: Invalid time format '$taskTime12'\n";
+        echo "Invalid format for ID $id: '$taskTime12'\n";
     }
 }
 
