@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 // Create your own mysqli connection here, without touching database.php
 $db_host = 'db.gateway.01.webbypage.com';
 $db_name = 'daily_coach';
