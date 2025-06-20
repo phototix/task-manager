@@ -12,7 +12,7 @@ if ($mysqli->connect_error) {
 }
 
 // Fetch tasks
-$query = "SELECT id, time FROM daily_tasks";
+$query = "SELECT id, time FROM daily_tasks WHERE time <>''";
 $result = $mysqli->query($query);
 
 if (!$result) {
