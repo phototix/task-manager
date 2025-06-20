@@ -15,7 +15,7 @@ if ($mysqli->connect_error) {
 }
 
 // Fetch tasks
-$query = "SELECT id, task_time FROM daily_tasks";
+$query = "SELECT id, time FROM daily_tasks";
 $result = $mysqli->query($query);
 
 if (!$result) {
@@ -24,14 +24,14 @@ if (!$result) {
 
 while ($row = $result->fetch_assoc()) {
     $id = $row['id'];
-    $taskTime12 = $row['task_time'];
+    $taskTime12 = $row['time'];
 
     // Convert 12-hour to 24-hour format
     $dateTime = DateTime::createFromFormat('h:i A', $taskTime12);
     if ($dateTime) {
         $taskTime24 = $dateTime->format('H:i');
 
-        $update = $mysqli->prepare("UPDATE daily_tasks SET task_time = ? WHERE id = ?");
+        $update = $mysqli->prepare("UPDATE daily_tasks SET time = ? WHERE id = ?");
         $update->bind_param("si", $taskTime24, $id);
         $update->execute();
 
