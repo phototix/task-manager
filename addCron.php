@@ -9,6 +9,7 @@ $protectedCronJobs = [
     "* * * * * php /var/www/task.brandon.my/addCron.php",
     "0 0 * * * php /var/www/task.brandon.my/updateGroup.php",
     "0 0 * * * php /var/www/task.brandon.my/converTime.php",
+    "* * * * * find /var/www/videostreamer/live -type f -name "*.ts" -mmin +10 -delete", 
     "50 2 * * * php -f /var/www/cloud.i-dc.institute/occ files:scan --all && php -f /var/www/cloud.webbypage.com/occ files:scan --all",
     "0 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --on && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --on",
     "15 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --off && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --off"
