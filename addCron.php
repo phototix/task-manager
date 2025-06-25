@@ -4,15 +4,15 @@ $pdo = new PDO('mysql:host=db.gateway.01.webbypage.com;dbname=daily_coach', 'web
 
 // 1. Define the existing cron jobs that must be preserved
 $protectedCronJobs = [
-    "0 9 * * * php /home/ubuntu/dailydose.php",
-    "0 5 * * * /home/ubuntu/backup_database.sh",
-    "* * * * * php /var/www/task.brandon.my/addCron.php",
-    "0 0 * * * php /var/www/task.brandon.my/updateGroup.php",
-    "0 0 * * * php /var/www/task.brandon.my/converTime.php",
-    "* * * * * find /var/www/videostreamer/live -type f -name "*.ts" -mmin +10 -delete", 
-    "50 2 * * * php -f /var/www/cloud.i-dc.institute/occ files:scan --all && php -f /var/www/cloud.webbypage.com/occ files:scan --all",
-    "0 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --on && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --on",
-    "15 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --off && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --off"
+    '0 9 * * * php /home/ubuntu/dailydose.php',
+    '0 5 * * * /home/ubuntu/backup_database.sh',
+    '* * * * * php /var/www/task.brandon.my/addCron.php',
+    '0 0 * * * php /var/www/task.brandon.my/updateGroup.php',
+    '0 0 * * * php /var/www/task.brandon.my/converTime.php',
+    '* * * * * find /var/www/videostreamer/live -type f -name "*.ts" -mmin +10 -delete',
+    '50 2 * * * php -f /var/www/cloud.i-dc.institute/occ files:scan --all && php -f /var/www/cloud.webbypage.com/occ files:scan --all',
+    '0 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --on && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --on',
+    '15 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --off && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --off'
 ];
 
 $Today = date('Y-m-d');
