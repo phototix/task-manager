@@ -6,7 +6,7 @@ $pdo = new PDO('mysql:host=db.gateway.01.webbypage.com;dbname=daily_coach', 'web
 $protectedCronJobs = [
     '0 9 * * * php /home/ubuntu/dailydose.php',
     '0 5 * * * /home/ubuntu/backup_database.sh',
-    '* * * * * php /var/www/task.brandon.my/addCron.php',
+    '* * * * * sudo php /var/www/task.brandon.my/addCron.php',
     '0 0 * * * php /var/www/task.brandon.my/updateGroup.php',
     '0 0 * * * php /var/www/task.brandon.my/converTime.php',
     '0 6 * * * php /var/www/videostreamer/listTodaySchedule.php',
