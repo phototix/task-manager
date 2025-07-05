@@ -10,11 +10,11 @@ $protectedCronJobs = [
     '0 0 * * * php /var/www/task.brandon.my/updateGroup.php',
     '0 0 * * * php /var/www/task.brandon.my/converTime.php',
     '0 6 * * * php /var/www/videostreamer/listTodaySchedule.php',
-    '0 8 * * * /usr/bin/php /var/www/task.brandon.my/sendAnnouncement.php $(date +\%F)',
+    '0 8 * * * php /var/www/task.brandon.my/sendAnnouncement.php $(date +\%F)',
     '* * * * * find /var/www/videostreamer/live -type f -name "*.ts" -mmin +10 -delete',
-    '50 2 * * * php -f /var/www/cloud.i-dc.institute/occ files:scan --all && php -f /var/www/cloud.webbypage.com/occ files:scan --all',
-    '0 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --on && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --on',
-    '15 3 * * * php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --off && php -f /var/www/cloud.webbypage.com/occ maintenance:mode --off'
+    '50 2 * * * sudo -u www-data php -f /var/www/cloud.i-dc.institute/occ files:scan --all && sudo -u www-data php -f /var/www/cloud.webbypage.com/occ files:scan --all',
+    '0 3 * * * sudo -u www-data php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --on && sudo -u www-data php -f /var/www/cloud.webbypage.com/occ maintenance:mode --on',
+    '15 3 * * * sudo -u www-data php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --off && sudo -u www-data php -f /var/www/cloud.webbypage.com/occ maintenance:mode --off'
 ];
 
 $Today = date('Y-m-d');
