@@ -326,6 +326,7 @@
                     task_description: $('#taskDescription').val(),
                     priority: $('#taskPriority').val(),
                     remarks: $('#taskRemarks').val(),
+                    task_date: formatDateForDisplay($('#taskDate').val()),
                     time: $('#taskTime').val()
                 };
                 
