@@ -57,7 +57,7 @@ switch ($method) {
         $stmt->bindParam(':priority', $data['priority']);
         $stmt->bindParam(':remarks', $data['remarks']);
         $stmt->bindParam(':time', $data['time']);
-        $stmt->bindParam(':task_date', date('Y-m-d'));
+        $stmt->bindParam(':task_date', $data['task_date']);
         
         if ($stmt->execute()) {
             echo json_encode(['success' => true, 'id' => $db->lastInsertId()]);
