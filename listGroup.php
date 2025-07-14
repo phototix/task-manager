@@ -70,7 +70,7 @@ $data = json_decode($response, true);
             <div class="card group-card shadow-sm">
                 <div class="card-body position-relative">
                     <a href="/?user_id=<?= htmlspecialchars($groupId) ?>">
-                        <button class="btn btn-sm btn-outline-primary edit-btn" style="margin-right:100px;">
+                        <button class="btn btn-sm btn-outline-primary edit-btn" style="margin-top:100px;">
                             <i class="bi bi-list"></i> Tasks
                         </button>
                     </a>
