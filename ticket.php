@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Tickets</title>
+    <title>Tickets</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- Bootstrap CSS -->
@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h2 class="mb-4"><i class="fas fa-ticket-alt"></i> My Support Tickets</h2>
+    <h2 class="mb-4"><i class="fas fa-ticket-alt"></i> Support Tickets</h2>
     <div id="ticket-table-container">
         <table class="table table-bordered table-striped">
             <thead class="table-dark">
