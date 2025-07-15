@@ -96,7 +96,7 @@
     if (!userId) {
         $('#ticket-list').html('<tr><td colspan="5" class="text-danger text-center">No user_id provided in URL.</td></tr>');
     } else {
-        $.getJSON(`api/ticket.php?user_id=${encodeURIComponent(userId)}`, function(data) {
+        $.getJSON(`/api/ticket.php?user_id=${encodeURIComponent(userId)}`, function(data) {
             if (data.length === 0) {
                 $('#ticket-list').html('<tr><td colspan="5" class="text-muted text-center">No tickets found.</td></tr>');
                 return;
@@ -120,7 +120,7 @@
     // On row click, fetch ticket details
     $(document).on('click', '.ticket-row', function() {
         const ticketId = $(this).data('id');
-        $.getJSON(`api/ticket.php?id=${ticketId}`, function(ticket) {
+        $.getJSON(`/api/ticket.php?user_id=${encodeURIComponent(userId)}&id=${ticketId}`, function(ticket) {
             $('#detail-issue').text(ticket.issue);
             $('#detail-company').text(ticket.company_name);
             $('#detail-status').html(`<span class="badge bg-${getStatusClass(ticket.status)}">${ticket.status}</span>`);
