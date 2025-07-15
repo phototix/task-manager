@@ -59,8 +59,6 @@
       </div>
       <div class="modal-body">
         <dl class="row" id="ticket-details">
-          <dt class="col-sm-3">Issue</dt>
-          <dd class="col-sm-9" id="detail-issue"></dd>
 
           <dt class="col-sm-3">Issuer Name</dt>
           <dd class="col-sm-9" id="detail-name"></dd>
@@ -70,6 +68,9 @@
 
           <dt class="col-sm-3">Issuer Email</dt>
           <dd class="col-sm-9" id="detail-email"></dd>
+          
+          <dt class="col-sm-3">Issue</dt>
+          <dd class="col-sm-9" id="detail-issue"></dd>
 
           <dt class="col-sm-3">Company</dt>
           <dd class="col-sm-9" id="detail-company"></dd>
