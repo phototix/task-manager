@@ -49,23 +49,61 @@
     </div>
 </div>
 
+<!-- Ticket Detail Modal -->
+<div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="fas fa-info-circle"></i> Ticket Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <dl class="row" id="ticket-details">
+          <dt class="col-sm-3">Issue</dt>
+          <dd class="col-sm-9" id="detail-issue"></dd>
+
+          <dt class="col-sm-3">Company</dt>
+          <dd class="col-sm-9" id="detail-company"></dd>
+
+          <dt class="col-sm-3">Status</dt>
+          <dd class="col-sm-9" id="detail-status"></dd>
+
+          <dt class="col-sm-3">Remarks</dt>
+          <dd class="col-sm-9" id="detail-remarks"></dd>
+
+          <dt class="col-sm-3">Created At</dt>
+          <dd class="col-sm-9" id="detail-date"></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-    // Get user_id from URL
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('user_id');
+
+    function getStatusClass(status) {
+        switch (status.toLowerCase()) {
+            case 'pending': return 'warning';
+            case 'resolved': return 'success';
+            case 'in progress': return 'info';
+            case 'closed': return 'secondary';
+            default: return 'light';
+        }
+    }
 
     if (!userId) {
         $('#ticket-list').html('<tr><td colspan="5" class="text-danger text-center">No user_id provided in URL.</td></tr>');
     } else {
-        // Fetch ticket list from PHP
-        $.getJSON(`/api/ticket.php?user_id=${encodeURIComponent(userId)}`, function(data) {
+        $.getJSON(`api/ticket.php?user_id=${encodeURIComponent(userId)}`, function(data) {
             if (data.length === 0) {
                 $('#ticket-list').html('<tr><td colspan="5" class="text-muted text-center">No tickets found.</td></tr>');
                 return;
             }
 
             const rows = data.map(ticket => `
-                <tr>
+                <tr class="ticket-row" data-id="${ticket.id}">
                     <td>${ticket.id}</td>
                     <td>${ticket.issue}</td>
                     <td>${ticket.company_name}</td>
@@ -79,15 +117,18 @@
         });
     }
 
-    function getStatusClass(status) {
-        switch (status.toLowerCase()) {
-            case 'pending': return 'warning';
-            case 'resolved': return 'success';
-            case 'in progress': return 'info';
-            case 'closed': return 'secondary';
-            default: return 'light';
-        }
-    }
+    // On row click, fetch ticket details
+    $(document).on('click', '.ticket-row', function() {
+        const ticketId = $(this).data('id');
+        $.getJSON(`api/ticket.php?id=${ticketId}`, function(ticket) {
+            $('#detail-issue').text(ticket.issue);
+            $('#detail-company').text(ticket.company_name);
+            $('#detail-status').html(`<span class="badge bg-${getStatusClass(ticket.status)}">${ticket.status}</span>`);
+            $('#detail-remarks').text(ticket.remarks ?? 'No remarks.');
+            $('#detail-date').text(ticket.inquiry_date);
+            $('#ticketModal').modal('show');
+        });
+    });
 </script>
 </body>
 </html>

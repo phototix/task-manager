@@ -41,8 +41,8 @@ try {
                 exit;
             }
 
-            $stmt = $db->prepare("INSERT INTO chatbot_inquiries (user_id, name, phone, email, company_name, issue, status) 
-                                  VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $db->prepare("INSERT INTO chatbot_inquiries (user_id, name, phone, email, company_name, issue, status, remarks) 
+                                  VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([
                 $data['user_id'],
                 $data['name'],
@@ -50,7 +50,8 @@ try {
                 $data['email'] ?? null,
                 $data['company_name'] ?? null,
                 $data['issue'],
-                $data['status'] ?? 'Pending'
+                $data['status'] ?? 'Pending',
+                $data['remarks']
             ]);
 
             echo json_encode(["message" => "Ticket created", "id" => $db->lastInsertId()]);
@@ -68,7 +69,7 @@ try {
             $fields = [];
             $params = [];
 
-            foreach (['name', 'phone', 'email', 'company_name', 'issue', 'status'] as $field) {
+            foreach (['name', 'phone', 'email', 'company_name', 'issue', 'status', 'remarks'] as $field) {
                 if (isset($data[$field])) {
                     $fields[] = "$field = ?";
                     $params[] = $data[$field];
