@@ -20,6 +20,15 @@
 <body>
 <div class="container mt-5">
     <h2 class="mb-4"><i class="fas fa-ticket-alt"></i> Support Tickets</h2>
+
+    <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>" style="margin-left:10px;margin-top:10px;">
+        <button class="btn btn-warning"><i class="fas fa-list me-2"></i>Tasks List</button>
+    </a>
+
+    <a href="/index.php/calendar?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
+        <button class="btn btn-warning" style="margin-top:10px;"><i class="fas fa-calendar me-2"></i>Calendar</button>
+    </a>
+
     <div id="ticket-table-container">
         <table class="table table-bordered table-striped">
             <thead class="table-dark">
