@@ -19,6 +19,11 @@ switch ($clean_uri) {
         // Load the calendar page
         require_once BASE_PATH . '/calendar.php';
         break;
+    case '/index.php/ticket':
+        // Load the ticket page
+        require_once BASE_PATH . '/ticket.php';
+        break;
+        
         
     case '/':
     case '':
