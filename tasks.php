@@ -62,7 +62,7 @@
                 </a>
 
                 <a href="/index.php/ticket?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
-                    <button class="btn btn-warning" style="margin-top:10px;"><i class="fas fa-list me-2"></i>Tickets</button>
+                    <button class="btn btn-warning" style="margin-top:10px;"><i class="fas fa-ticket-alt me-2"></i>Tickets</button>
                 </a>
 
                 <?php
