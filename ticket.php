@@ -62,6 +62,15 @@
           <dt class="col-sm-3">Issue</dt>
           <dd class="col-sm-9" id="detail-issue"></dd>
 
+          <dt class="col-sm-3">Issuer Name</dt>
+          <dd class="col-sm-9" id="detail-name"></dd>
+
+          <dt class="col-sm-3">Issuer Phone</dt>
+          <dd class="col-sm-9" id="detail-phone"></dd>
+
+          <dt class="col-sm-3">Issuer Email</dt>
+          <dd class="col-sm-9" id="detail-email"></dd>
+
           <dt class="col-sm-3">Company</dt>
           <dd class="col-sm-9" id="detail-company"></dd>
 
@@ -122,6 +131,9 @@
         const ticketId = $(this).data('id');
         $.getJSON(`/api/ticket.php?user_id=${encodeURIComponent(userId)}&id=${ticketId}`, function(ticket) {
             $('#detail-issue').text(ticket.issue);
+            $('#detail-name').text(ticket.name);
+            $('#detail-phone').text(ticket.phone);
+            $('#detail-email').text(ticket.email);
             $('#detail-company').text(ticket.company_name);
             $('#detail-status').html(`<span class="badge bg-${getStatusClass(ticket.status)}">${ticket.status}</span>`);
             $('#detail-remarks').text(ticket.remarks ?? 'No remarks.');
