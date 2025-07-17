@@ -41,7 +41,7 @@ $(document).ready(function() {
         <td>
         <a href="/index.php/manageGroup?user_id=${row.recipients}" class="btn btn-sm btn-warning">Manage</a>
         <a href="/index.php/manageContactDetails?user_id=${row.recipients}" class="btn btn-sm btn-primary">View</a>
-        <a class="btn btn-sm btn-danger deleteBtn" data-recipient="${row.recipients}">Delete</a>
+        <a href="#" class="btn btn-sm btn-danger deleteBtn" data-recipient="${row.recipients}">Delete</a>
         </td>
       </tr>`;
     });
