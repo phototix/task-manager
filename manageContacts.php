@@ -30,7 +30,7 @@
 
 <script>
 $(document).ready(function() {
-  $.getJSON("api/contactsList.php", function(data) {
+  $.getJSON("/api/contactsList.php", function(data) {
     var rows = '';
     data.forEach(function(row) {
       rows += `<tr>
