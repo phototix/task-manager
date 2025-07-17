@@ -12,8 +12,16 @@ $clean_uri = rtrim($clean_uri, '/');
 // Simple router
 switch ($clean_uri) {
     case '/index.php/manageGroup':
-        // Load the calendar page
+        // Load the manage group page
         require_once BASE_PATH . '/manageGroup.php';
+        break;
+    case '/index.php/manageContacts':
+        // Load the manage contacts page
+        require_once BASE_PATH . '/manageContacts.php';
+        break;
+    case '/index.php/manageContactDetails':
+        // Load the manage contacts details page
+        require_once BASE_PATH . '/manageContactDetails.php';
         break;
     case '/index.php/calendar':
         // Load the calendar page
