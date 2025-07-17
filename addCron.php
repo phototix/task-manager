@@ -12,6 +12,7 @@ $protectedCronJobs = [
     '40 4 * * * sudo -u www-data php /var/www/videostreamer/listTodaySchedule.php',
     '0 8 * * * php /var/www/task.brandon.my/sendAnnouncement.php $(date +\%F)',
     '* * * * * find /var/www/videostreamer/live -type f -name "*.ts" -mmin +10 -delete',
+    '0 1 * * * find /var/www/videostreamer/logs -name "stream_*.log" -type f -mtime +3 -delete',
     '50 2 * * * sudo -u www-data php -f /var/www/cloud.i-dc.institute/occ files:scan --all && sudo -u www-data php -f /var/www/cloud.webbypage.com/occ files:scan --all',
     '0 3 * * * sudo -u www-data php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --on && sudo -u www-data php -f /var/www/cloud.webbypage.com/occ maintenance:mode --on',
     '15 3 * * * sudo -u www-data php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --off && sudo -u www-data php -f /var/www/cloud.webbypage.com/occ maintenance:mode --off'
