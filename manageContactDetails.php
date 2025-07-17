@@ -27,12 +27,19 @@
       <textarea class="form-control" id="topics" name="topics"></textarea>
     </div>
     <div class="form-group">
-      <label>Contact Type</label>
-      <input type="text" class="form-control" id="contact_type" name="contact_type">
+      <label for="contact_type">Contact Type</label>
+      <select class="form-control" id="contact_type" name="contact_type">
+        <option value="personal">Personal</option>
+        <option value="group">Group</option>
+      </select>
     </div>
     <div class="form-group">
-      <label>Language</label>
-      <input type="text" class="form-control" id="lang" name="lang">
+      <label for="lang">Language</label>
+      <select class="form-control" id="lang" name="lang">
+        <option value="UKEnglish">UK English</option>
+        <option value="SimplifiedChinese">Simplified Chinese</option>
+        <option value="TraditionalChinese">Traditional Chinese</option>
+      </select>
     </div>
     <button type="submit" class="btn btn-success">Update</button>
     <a href="/index.php/manageContacts" class="btn btn-secondary">Back</a>
