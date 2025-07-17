@@ -39,6 +39,7 @@ $(document).ready(function() {
         <td>${row.topics || ''}</td>
         <td>${row.lang || ''}</td>
         <td>
+        <a href="/index.php/manageGroup?user_id=${row.recipients}" class="btn btn-sm btn-warning">Manage</a>
         <a href="/index.php/manageContactDetails?user_id=${row.recipients}" class="btn btn-sm btn-primary">View</a>
         <button class="btn btn-sm btn-danger deleteBtn" data-recipient="${row.recipients}">Delete</button>
         </td>
