@@ -34,8 +34,8 @@ $(document).ready(function() {
     var rows = '';
     data.forEach(function(row) {
       rows += `<tr>
-        <td>${row.recipients}</td>
-        <td>${row.name || ''}</td>
+        <td>${row.id}</td>
+        <td>${row.name || ''}<br>${row.recipients}</td>
         <td>${row.topics || ''}</td>
         <td>${row.lang || ''}</td>
         <td>

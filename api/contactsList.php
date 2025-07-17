@@ -8,5 +8,5 @@ try {
   die(json_encode(["error" => $e->getMessage()]));
 }
 
-$stmt = $pdo->query("SELECT recipients, name, topics, lang FROM contacts ORDER BY id DESC");
+$stmt = $pdo->query("SELECT id, recipients, name, topics, lang FROM contacts ORDER BY id DESC");
 echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
