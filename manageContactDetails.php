@@ -35,7 +35,7 @@
       <input type="text" class="form-control" id="lang" name="lang">
     </div>
     <button type="submit" class="btn btn-success">Update</button>
-    <a href="/inedx.php/manageContacts" class="btn btn-secondary">Back</a>
+    <a href="/index.php/manageContacts" class="btn btn-secondary">Back</a>
   </form>
 </div>
 
