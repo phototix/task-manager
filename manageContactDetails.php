@@ -48,7 +48,7 @@ if (!userId) {
   location.href = '/index.php/manageContacts';
 }
 
-$.getJSON("api/contactDetails.php?user_id=" + userId, function(data) {
+$.getJSON("/api/contactDetails.php?user_id=" + userId, function(data) {
   if (data) {
     $('#recipients').val(data.recipients);
     $('#name').val(data.name);
@@ -61,7 +61,7 @@ $.getJSON("api/contactDetails.php?user_id=" + userId, function(data) {
 
 $('#updateForm').submit(function(e) {
   e.preventDefault();
-  $.post('api/contactUpdate.php', $(this).serialize(), function(response) {
+  $.post('/api/contactUpdate.php', $(this).serialize(), function(response) {
     alert(response.message);
   }, 'json');
 });
