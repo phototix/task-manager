@@ -38,11 +38,31 @@ $(document).ready(function() {
         <td>${row.name || ''}</td>
         <td>${row.topics || ''}</td>
         <td>${row.lang || ''}</td>
-        <td><a href="/index.php/manageContactDetails?user_id=${row.recipients}" class="btn btn-sm btn-primary">View</a></td>
+        <td>
+        <a href="/index.php/manageContactDetails?user_id=${row.recipients}" class="btn btn-sm btn-primary">View</a>
+        <button class="btn btn-sm btn-danger deleteBtn" data-recipient="${row.recipients}">Delete</button>
+        </td>
       </tr>`;
     });
     $('#contactsTable tbody').html(rows);
   });
+
+  $(document).on('click', '.deleteBtn', function() {
+    if (!confirm("Are you sure you want to delete this contact?")) return;
+    const recipient = $(this).data('recipient');
+
+    fetch('/api/contactDelete.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ recipients: recipient })
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.message);
+      location.reload();
+    });
+  });
+
 });
 </script>
 </body>
