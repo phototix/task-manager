@@ -42,7 +42,7 @@
       </select>
     </div>
     <button type="submit" class="btn btn-success">Update</button>
-    <button onclick="manageContact()" class="btn btn-warning">Manage</button>
+    <div onclick="manageContact()" class="btn btn-warning">Manage</div>
     <a href="/index.php/manageContacts" class="btn btn-secondary">Back</a>
   </form>
 </div>
