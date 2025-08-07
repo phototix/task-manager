@@ -42,7 +42,7 @@
       </select>
     </div>
     <button type="submit" class="btn btn-success">Update</button>
-    <button onclick="manageContact()" class="btn btn-sm btn-warning">Manage</button>
+    <button onclick="manageContact()" class="btn btn-warning">Manage</button>
     <a href="/index.php/manageContacts" class="btn btn-secondary">Back</a>
   </form>
 </div>
@@ -57,7 +57,7 @@ if (!userId) {
 }
 
 function manageContact(){
-  location.href = '/index.php/manageContactDetails?user_id=' + userId;
+  location.href = '/index.php/manageGroup?user_id=' + userId;
 }
 
 $.getJSON("/api/contactDetails.php?user_id=" + userId, function(data) {
