@@ -71,7 +71,20 @@ if (!$userId) {
                             </div>
                             <div class="mb-3">
                                 <label for="category" class="form-label">Category</label>
-                                <input type="text" class="form-control" id="category">
+                                <select class="form-control" id="category">
+                                    <option value="Info">Info</option>
+                                    <option value="Products">Product</option>
+                                    <option value="Services">Services</option>
+                                    <option value="Account">Account</option>
+                                    <option value="Billing">Billing</option>
+                                    <option value="Payment">Payment</option>
+                                    <option value="Troubleshooting">Troubleshooting</option>
+                                    <option value="Technical">Technical</option>
+                                    <option value="Support">Support</option>
+                                    <option value="Community">Community</option>
+                                    <option value="Updates">Updates</option>
+                                    <option value="News">News</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="tags" class="form-label">Tags (comma separated)</label>
