@@ -1,0 +1,122 @@
+<?php
+header("Content-Type: application/json");
+require_once '../config/database.php';
+
+$method = $_SERVER['REQUEST_METHOD'];
+$userId = $_GET['user_id'] ?? null;
+$knowledgeId = $_GET['id'] ?? null;
+
+// Connect to database
+$db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+switch ($method) {
+    case 'GET':
+        // Get all knowledge items for the user
+        if ($userId) {
+            $query = "SELECT * FROM knowledge_base WHERE user_id = :user_id ORDER BY created_at DESC";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':user_id', $userId);
+            $stmt->execute();
+            $knowledgeItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($knowledgeItems);
+        }
+        // Get single knowledge item by ID
+        elseif ($knowledgeId) {
+            $query = "SELECT * FROM knowledge_base WHERE id = :id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':id', $knowledgeId);
+            $stmt->execute();
+            $knowledgeItem = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo json_encode($knowledgeItem);
+        } else {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'message' => 'Missing user_id or knowledge id']);
+        }
+        break;
+
+    case 'POST':
+        // Add new knowledge item
+        $data = json_decode(file_get_contents('php://input'), true);
+        if (!$userId) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'message' => 'user_id is required']);
+            break;
+        }
+
+        $query = "INSERT INTO knowledge_base (user_id, title, content, category, tags)
+                  VALUES (:user_id, :title, :content, :category, :tags)";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':user_id', $userId);
+        $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':content', $data['content']);
+        $stmt->bindParam(':category', $data['category']);
+        $stmt->bindParam(':tags', $data['tags']);
+
+        if ($stmt->execute()) {
+            echo json_encode(['success' => true, 'id' => $db->lastInsertId()]);
+        } else {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'message' => 'Failed to create knowledge item']);
+        }
+        break;
+
+    case 'PUT':
+        // Update existing knowledge item
+        if (!$knowledgeId) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'message' => 'Knowledge ID is required']);
+            break;
+        }
+
+        $data = json_decode(file_get_contents('php://input'), true);
+        $query = "UPDATE knowledge_base SET
+                  title = :title,
+                  content = :content,
+                  category = :category,
+                  tags = :tags
+                  WHERE id = :id AND user_id = :user_id";
+        
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $knowledgeId);
+        $stmt->bindParam(':user_id', $userId);
+        $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':content', $data['content']);
+        $stmt->bindParam(':category', $data['category']);
+        $stmt->bindParam(':tags', $data['tags']);
+
+        if ($stmt->execute()) {
+            echo json_encode(['success' => true]);
+        } else {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'message' => 'Failed to update knowledge item']);
+        }
+        break;
+
+    case 'DELETE':
+        // Delete knowledge item
+        if (!$knowledgeId) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'message' => 'Knowledge ID is required']);
+            break;
+        }
+
+        $query = "DELETE FROM knowledge_base WHERE id = :id AND user_id = :user_id";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $knowledgeId);
+        $stmt->bindParam(':user_id', $userId);
+
+        if ($stmt->execute()) {
+            echo json_encode(['success' => true]);
+        } else {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'message' => 'Failed to delete knowledge item']);
+        }
+        break;
+
+    default:
+        http_response_code(405);
+        echo json_encode(['success' => false, 'message' => 'Method not allowed']);
+        break;
+}
+?>
