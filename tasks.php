@@ -66,7 +66,7 @@
                 </a>
 
                 <a href="/index.php/manageKnowledge?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
-                    <button class="btn btn-warning" style="margin-top:10px;margin-bottom:10px;"><i class="fas fa-book me-2"></i>Knowledge</button>
+                    <button class="btn btn-warning" style="margin-top:10px;"><i class="fas fa-book me-2"></i>Knowledge</button>
                 </a>
 
                 <?php
