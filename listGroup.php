@@ -52,6 +52,12 @@ $data = json_decode($response, true);
 </head>
 <body>
 <div class="container mt-4">
+    <h2 class="mb-4">Manage Contacts</h2>
+
+    <a href="/index.php/manageContacts?user_id=<?php echo $_GET['user_id'] ?? ''; ?>" style="margin-left:10px;margin-top:10px;">
+        <button class="btn btn-warning" style="margin-top:10px;margin-bottom:10px;"><i class="fas fa-list me-2"></i>Manage Contacts</button>
+    </a>
+
     <h2 class="mb-4">WhatsApp Group Listing</h2>
     <?php if (!empty($data)): ?>
         <?php foreach ($data as $group): 

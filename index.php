@@ -16,13 +16,26 @@ switch ($clean_uri) {
         require_once BASE_PATH . '/manageKnowledge.php';
         break;
     case '/index.php/manageGroup':
-        // Load the calendar page
+        // Load the manage group page
         require_once BASE_PATH . '/manageGroup.php';
+        break;
+    case '/index.php/manageContacts':
+        // Load the manage contacts page
+        require_once BASE_PATH . '/manageContacts.php';
+        break;
+    case '/index.php/manageContactDetails':
+        // Load the manage contacts details page
+        require_once BASE_PATH . '/manageContactDetails.php';
         break;
     case '/index.php/calendar':
         // Load the calendar page
         require_once BASE_PATH . '/calendar.php';
         break;
+    case '/index.php/ticket':
+        // Load the ticket page
+        require_once BASE_PATH . '/ticket.php';
+        break;
+        
         
     case '/':
     case '':
