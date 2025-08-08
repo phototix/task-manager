@@ -47,7 +47,7 @@ function authenticateUser() {
     }
     
     // Check for authentication attempt
-    if (isset($_GET['user_id']) {
+    if (isset($_GET['user_id'])) {
         $userId = $_GET['user_id'];
         
         // Validate user_id format (basic sanitization)
