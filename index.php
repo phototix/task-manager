@@ -126,7 +126,7 @@ if (in_array($clean_uri, $protectedRoutes)) {
             header('Content-Type: application/json');
             echo json_encode([
                 'success' => false,
-                'message' => 'Authentication failed. Please check your credentials.' . $_POST['user_id']
+                'message' => 'Authentication failed. Please check your credentials.' . $_POST['user_id'].$userId.$password.md5($password)
             ]);
             exit;
         }
