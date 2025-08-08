@@ -144,6 +144,7 @@ if (in_array($clean_uri, $protectedRoutes)) {
                 .login-form { background: #f9f9f9; padding: 20px; border-radius: 5px; }
                 .form-group { margin-bottom: 15px; }
                 label { display: block; margin-bottom: 5px; }
+                input[type="text"] { width: 100%; padding: 8px; box-sizing: border-box; }
                 input[type="password"] { width: 100%; padding: 8px; box-sizing: border-box; }
                 button { background: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
                 button:hover { background: #45a049; }
