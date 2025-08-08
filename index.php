@@ -131,9 +131,6 @@ if (in_array($clean_uri, $protectedRoutes)) {
             exit;
         }
         
-        // Show login form with CSRF protection
-        $csrfToken = bin2hex(random_bytes(32));
-        $_SESSION['csrf_token'] = $csrfToken;
         ?>
         <!DOCTYPE html>
         <html>
@@ -154,7 +151,6 @@ if (in_array($clean_uri, $protectedRoutes)) {
             <div class="login-form">
                 <h1>Login Required</h1>
                 <form method="POST">
-                    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken); ?>">
                     <div class="form-group">
                         <label>Username:</label>
                         <input type="text" name="user_id" value="<?php echo htmlspecialchars($_GET['user_id'] ?? ''); ?>">
