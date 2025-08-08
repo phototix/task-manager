@@ -59,7 +59,7 @@ function authenticateUser() {
             $password = $_POST['password'];
             
             // Basic validation
-            if (empty($password)) {
+            if (empty($_POST['password'])) {
                 return false;
             }
             
@@ -71,7 +71,7 @@ function authenticateUser() {
                 
                 $result = $stmt->fetch();
                 
-                if ($result && md5($password) === $result['secret']) {
+                if ($result && md5($_POST['password']) === $result['secret']) {
                     // Authentication successful
                     $_SESSION['loggedIn'] = true;
                     $_SESSION['user_id'] = $userId;
