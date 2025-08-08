@@ -47,8 +47,8 @@ function authenticateUser() {
     }
     
     // Check for authentication attempt
-    if (isset($_GET['user_id'])) {
-        $userId = $_GET['user_id'];
+    if (isset($_POST['user_id'])) {
+        $userId = $_POST['user_id'];
         
         // Validate user_id format (basic sanitization)
         if (!preg_match('/^[a-zA-Z0-9_\-]+$/', $userId)) {
@@ -157,7 +157,7 @@ if (in_array($clean_uri, $protectedRoutes)) {
                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken); ?>">
                     <div class="form-group">
                         <label>Username:</label>
-                        <input type="text" value="<?php echo htmlspecialchars($_GET['user_id'] ?? ''); ?>">
+                        <input type="text" name="user_id" value="<?php echo htmlspecialchars($_GET['user_id'] ?? ''); ?>">
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
