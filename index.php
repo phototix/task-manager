@@ -157,7 +157,7 @@ if (in_array($clean_uri, $protectedRoutes)) {
                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken); ?>">
                     <div class="form-group">
                         <label>Username:</label>
-                        <input type="text" value="<?php echo htmlspecialchars($_GET['user_id'] ?? ''); ?>" readonly>
+                        <input type="text" value="<?php echo htmlspecialchars($_GET['user_id'] ?? ''); ?>">
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
