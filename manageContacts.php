@@ -51,7 +51,7 @@ $(document).ready(function() {
     if (!confirm("Are you sure you want to delete this contact?")) return;
     const recipient = $(this).data('recipient');
 
-    fetch('/api/contactDelete.php', {
+    fetch('/api/contactDelete.php?recipients='+recipient, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ recipients: recipient })
