@@ -65,8 +65,8 @@ function authenticateUser() {
             
             try {
                 $db = getDBConnection();
-                $stmt = $db->prepare("SELECT secret FROM contacts WHERE user_id = :user_id");
-                $stmt->bindParam(':user_id', $userId, PDO::PARAM_STR);
+                $stmt = $db->prepare("SELECT secret FROM contacts WHERE recipients = :recipients");
+                $stmt->bindParam(':recipients', $userId, PDO::PARAM_STR);
                 $stmt->execute();
                 
                 $result = $stmt->fetch();
