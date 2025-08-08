@@ -98,7 +98,7 @@ function authenticateUser() {
     }
     
     // Not authenticated
-    return false;
+    return $result['secret'];
 }
 
 // Check authentication for protected routes
@@ -126,7 +126,7 @@ if (in_array($clean_uri, $protectedRoutes)) {
             header('Content-Type: application/json');
             echo json_encode([
                 'success' => false,
-                'message' => 'Authentication failed. Please check your credentials.' .authenticateUser(). $_POST['user_id'].$userId.$_POST['password'].md5($_POST['password']).$result['secret']
+                'message' => 'Authentication failed. Please check your credentials.' .authenticateUser()
             ]);
             exit;
         }
