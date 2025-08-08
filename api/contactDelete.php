@@ -14,7 +14,7 @@ if (!$recipients) {
   exit;
 }
 
-$stmt = $pdo->prepare("DELETE FROM contacts WHERE recipients = ?");
+$stmt = $pdo->prepare("UPDATE contacts SET status='0' WHERE recipients = ?");
 $success = $stmt->execute([$recipients]);
 
 echo json_encode([
