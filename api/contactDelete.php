@@ -8,7 +8,7 @@ try {
   die(json_encode(["error" => $e->getMessage()]));
 }
 
-$recipients = $_POST['recipients'] ?? '';
+$recipients = $_GET['recipients'] ?? '';
 if (!$recipients) {
   echo json_encode(["status" => "fail", "message" => "Missing recipients"]);
   exit;
