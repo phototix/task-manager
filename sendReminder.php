@@ -44,6 +44,6 @@ curl_close($ch);
 echo "Sent: " . $payload . "\n";
 
 // Mark Completed task
-$sql = "UPDATE daily_tasks SET is_completed='1' WHERE id = $taskID";
+$sql = "UPDATE daily_tasks SET is_completed='1' WHERE id = $taskID AND task_repeat = '0'";
 $result = $conn->query($sql);
 ?>
