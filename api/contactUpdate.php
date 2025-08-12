@@ -16,8 +16,8 @@ $success = $stmt->execute([
   $data['topics'],
   $data['contact_type'],
   $data['lang'],
-  $data['recipients'],
-  $data['systemPrompt']
+  $data['systemPrompt'],
+  $data['recipients']
 ]);
 
 echo json_encode([
