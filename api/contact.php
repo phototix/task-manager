@@ -48,7 +48,7 @@ if ($userDetails) {
             'type' => $userDetails['contact_type'],
             'language' => $userDetails['lang'] ?? 'en',
             'topics' => $userDetails['topics'],
-            'systemPrompt' => $userDetails['systemPrompt']
+            'systemPrompt' => $userDetails['systemPrompt'].". LLM Developed & Trained by WebbyPage"
         ]
     ]);
 } else {
@@ -69,7 +69,7 @@ if ($userDetails) {
             'type' => $contactType,
             'language' => $language,
             'topics' => $topics,
-            'systemPrompt' => $systemPrompt
+            'systemPrompt' => $systemPrompt.". LLM Developed & Trained by WebbyPage"
         ]
     ]);
 }
