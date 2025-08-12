@@ -71,7 +71,7 @@ $data = json_decode($response, true);
             $picResponse = curl_exec($picCh);
             curl_close($picCh);
             $picData = json_decode($picResponse, true);
-            $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtinnHtzDiy/download';
+            $groupPic = $picData['url'] ?? 'https://cloud.i-dc.institute/index.php/s/CcYDwCCJjYX8qgY/download';
         ?>
             <div class="card group-card shadow-sm">
                 <div class="card-body position-relative">

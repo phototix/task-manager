@@ -14,7 +14,7 @@ $image_data = [
     "file" => [
         "mimetype" => "image/jpeg",
         "filename" => "filename.jpg",
-        "url" => "https://cloud.webbypage.com/index.php/s/KHseyQxcmRYxXBM/download"
+        "url" => "https://cloud.i-dc.institute/index.php/s/CcYDwCCJjYX8qgY/download"
     ]
 ];
 
