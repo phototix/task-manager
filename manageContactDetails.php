@@ -43,6 +43,8 @@
     </div>
     <button type="submit" class="btn btn-success">Update</button>
     <div onclick="manageContact()" class="btn btn-warning">Manage</div>
+    <div onclick="manageKnowledge()" class="btn btn-warning">Knowledge</div>
+    <div onclick="manageTask()" class="btn btn-warning">Tasks</div>
     <a href="/index.php/manageContacts" class="btn btn-secondary">Back</a>
   </form>
 </div>
@@ -58,6 +60,14 @@ if (!userId) {
 
 function manageContact(){
   location.href = '/index.php/manageGroup?user_id=' + userId;
+}
+
+function manageKnowledge(){
+  location.href = '/index.php/manageKnowledge?user_id=' + userId;
+}
+
+function manageTask(){
+  location.href = '/?user_id=' + userId;
 }
 
 $.getJSON("/api/contactDetails.php?user_id=" + userId, function(data) {
