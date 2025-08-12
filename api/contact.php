@@ -47,7 +47,7 @@ if ($userDetails) {
             'email' => $userDetails['email'],
             'type' => $userDetails['contact_type'],
             'language' => $userDetails['lang'] ?? 'en',
-            'topics' => $userDetails['topics'] ? json_decode($userDetails['topics'], true) : []
+            'topics' => $userDetails['topics']
         ]
     ]);
 } else {
@@ -67,7 +67,7 @@ if ($userDetails) {
             'email' => $email,
             'type' => $contactType,
             'language' => $language,
-            'topics' => json_decode($topics, true),
+            'topics' => $topics,
             'systemPrompt' => $systemPrompt
         ]
     ]);
