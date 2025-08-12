@@ -79,7 +79,7 @@ if ($userDetails) {
             'email' => $email,
             'type' => $contactType,
             'language' => $language,
-            'topics' => $topics,
+            'topics' => json_decode($topics, true),
             'systemPrompt' => $systemPrompt
         ]
     ]);
