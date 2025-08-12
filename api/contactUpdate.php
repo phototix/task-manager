@@ -9,14 +9,15 @@ try {
 }
 
 $data = $_POST;
-$sql = "UPDATE contacts SET name = ?, topics = ?, contact_type = ?, lang = ? WHERE recipients = ?";
+$sql = "UPDATE contacts SET name = ?, topics = ?, contact_type = ?, lang = ?, systemPrompt = ? WHERE recipients = ?";
 $stmt = $pdo->prepare($sql);
 $success = $stmt->execute([
   $data['name'],
   $data['topics'],
   $data['contact_type'],
   $data['lang'],
-  $data['recipients']
+  $data['recipients'],
+  $data['systemPrompt']
 ]);
 
 echo json_encode([

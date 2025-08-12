@@ -27,6 +27,10 @@
       <textarea class="form-control" id="topics" name="topics"></textarea>
     </div>
     <div class="form-group">
+      <label>System Prompt</label>
+      <textarea class="form-control" id="systemPrompt" name="systemPrompt"></textarea>
+    </div>
+    <div class="form-group">
       <label for="contact_type">Contact Type</label>
       <select class="form-control" id="contact_type" name="contact_type">
         <option value="personal">Personal</option>
@@ -75,6 +79,7 @@ $.getJSON("/api/contactDetails.php?user_id=" + userId, function(data) {
     $('#name').val(data.name);
     $('#email').val(data.email);
     $('#topics').val(data.topics);
+    $('#systemPrompt').val(data.systemPrompt);
     $('#contact_type').val(data.contact_type);
     $('#lang').val(data.lang);
   }
