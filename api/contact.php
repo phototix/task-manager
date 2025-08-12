@@ -59,18 +59,6 @@ if ($userDetails) {
     $topics="Group Managmeent";
     $systemPrompt="";
 
-    $insertQuery = "INSERT INTO contacts (name, email, contact_type, lang, topics, systemPrompt, recipients) 
-                VALUES (:name, :email, :contact_type, :lang, :topics, :systemPrompt, :user_id)";
-    $insertStmt = $db->prepare($insertQuery);
-    $insertStmt->bindParam(':name', $name);
-    $insertStmt->bindParam(':email', $email);
-    $insertStmt->bindParam(':contact_type', $contactType);
-    $insertStmt->bindParam(':lang', $language);
-    $insertStmt->bindParam(':topics', $topics);
-    $insertStmt->bindParam(':systemPrompt', $systemPrompt);
-    $insertStmt->bindParam(':user_id', $userId);
-    $insertStmt->execute();
-
     echo json_encode([
         'success' => true,
         'data' => [
