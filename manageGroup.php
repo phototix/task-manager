@@ -59,6 +59,11 @@ $groupPic = $picData['url'] ?? 'https://cloud.i-dc.institute/index.php/s/CcYDwCC
             right: 10px;
             top: calc(10px + var(--edit-btn-height, 38px) + 8px); /* 8px margin below */
         }
+        .manage-details-btn {
+            position: absolute;
+            right: 10px;
+            top: calc(18px + var(--edit-btn-height, 38px) + 8px); /* 8px margin below */
+        }
         .edit-btn {
             position: absolute;
             top: 10px;
@@ -89,6 +94,9 @@ $groupPic = $picData['url'] ?? 'https://cloud.i-dc.institute/index.php/s/CcYDwCC
                 </button>
                 <a href="/?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
                     <button class="btn btn-sm btn-outline-primary manage-task-btn">Manage Tasks</button>
+                </a>
+                <a href="/index.php/manageContactDetails?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
+                    <button class="btn btn-sm btn-outline-primary manage-details-btn">Setting</button>
                 </a>
                 <div class="d-flex align-items-center mb-3">
                     <img src="<?= htmlspecialchars($groupPic) ?>" class="group-avatar" alt="Group Picture">
