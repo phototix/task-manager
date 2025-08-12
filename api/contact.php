@@ -53,11 +53,11 @@ if ($userDetails) {
     ]);
 } else {
     // User not found
-    $name="Demo AI group";
+    $name="AI";
     $email="";
-    $contactType="group";
+    $contactType="new";
     $language="UKEnglish";
-    $topics="Group Managmeent";
+    $topics="WhatsApp Managmeent";
     $systemPrompt="";
 
     echo json_encode([
