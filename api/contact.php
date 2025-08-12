@@ -19,7 +19,7 @@ if (!$userId) {
 // Function to get user details
 function getUserDetails($db, $userId) {
     try {
-        $query = "SELECT id, name, email, contact_type, lang, topics 
+        $query = "SELECT id, name, email, contact_type, lang, topics, systemPrompt 
                   FROM contacts 
                   WHERE recipients = :user_id 
                   LIMIT 1";
@@ -52,9 +52,35 @@ if ($userDetails) {
     ]);
 } else {
     // User not found
-    http_response_code(404);
+    $name="Demo AI group";
+    $email="";
+    $contactType="group";
+    $language="UKEnglish";
+    $topics="Group Managmeent";
+    $systemPrompt="";
+
+    $insertQuery = "INSERT INTO contacts (name, email, contact_type, lang, topics, systemPrompt, recipients) 
+                VALUES (:name, :email, :contact_type, :lang, :topics, :systemPrompt, :user_id)";
+    $insertStmt = $db->prepare($insertQuery);
+    $insertStmt->bindParam(':name', $name);
+    $insertStmt->bindParam(':email', $email);
+    $insertStmt->bindParam(':contact_type', $contactType);
+    $insertStmt->bindParam(':lang', $language);
+    $insertStmt->bindParam(':topics', $topics);
+    $insertStmt->bindParam(':systemPrompt', $systemPrompt);
+    $insertStmt->bindParam(':user_id', $userId);
+    $insertStmt->execute();
+
     echo json_encode([
-        'success' => false,
-        'message' => 'User not found in contacts'
+        'success' => true,
+        'data' => [
+            'id' => $userId,
+            'name' => $name,
+            'email' => $email,
+            'type' => $contactType,
+            'language' => $language,
+            'topics' => $topics,
+            'systemPrompt' => $systemPrompt
+        ]
     ]);
 }
