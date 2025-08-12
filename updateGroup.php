@@ -15,7 +15,7 @@ $pdo->exec("TRUNCATE TABLE participants");
 $pdo->exec("TRUNCATE TABLE group_list");
 
 // Fetch group data from API
-$apiUrl = 'https://whatsapp-waha.brandon.my/api/default/groups?sortBy=id';
+$apiUrl = 'https://waha.ezy.chat/api/default/groups?sortBy=id';
 $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['accept: application/json']);

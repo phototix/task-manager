@@ -26,6 +26,10 @@
         <button class="btn btn-warning" style="margin-top:10px;margin-bottom:10px;"><i class="fas fa-calendar me-2"></i>Calendar</button>
     </a>
 
+    <a href="/index.php/manageKnowledge?user_id=<?php echo $_GET['user_id'] ?? ''; ?>">
+        <button class="btn btn-warning" style="margin-top:10px;margin-bottom:10px;"><i class="fas fa-book me-2"></i>Knowledge</button>
+    </a>
+
     <div id="ticket-table-container">
         <table class="table table-bordered table-striped">
             <thead class="table-dark">

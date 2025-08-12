@@ -7,7 +7,7 @@ if (!isset($_GET['user_id'])) {
 $group_id = $_GET['user_id'];
 
 // API endpoint
-$api_url = "https://whatsapp-waha.brandon.my/api/default/groups/" . urlencode($group_id) . "/picture";
+$api_url = "https://waha.ezy.chat/api/default/groups/" . urlencode($group_id) . "/picture";
 
 // Image details
 $image_data = [

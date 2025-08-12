@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-$db_host = 'db.gateway.01.webbypage.com';
-$db_name = 'daily_coach';
-$db_user = 'webbycms';
-$db_pass = '#Abccy1982#';
+$db_host = 'database.ezy.chat';
+$db_name = 'ai_chat_tasks';
+$db_user = 'ezychat';
+$db_pass = '#Br3nzi2051Z#';

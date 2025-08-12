@@ -6,7 +6,7 @@ if (empty($groupId)) {
     die('<div class="alert alert-danger">No group ID specified. Please add ?user_id=GROUP_ID to the URL</div>');
 }
 
-$apiUrl = 'https://whatsapp-waha.brandon.my/api/default/groups/' . urlencode($groupId);
+$apiUrl = 'https://waha.ezy.chat/api/default/groups/' . urlencode($groupId);
 $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -17,7 +17,7 @@ curl_close($ch);
 $group = json_decode($response, true);
 
 // Get group picture
-$picApi = 'https://whatsapp-waha.brandon.my/api/default/groups/' . urlencode($groupId) . '/picture?refresh=false';
+$picApi = 'https://waha.ezy.chat/api/default/groups/' . urlencode($groupId) . '/picture?refresh=false';
 $picCh = curl_init($picApi);
 curl_setopt($picCh, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($picCh, CURLOPT_HTTPHEADER, ['accept: application/json']);
@@ -106,7 +106,7 @@ $groupPic = $picData['url'] ?? 'https://cloud.webbypage.com/index.php/s/kwzFAtin
                 <ul class="list-group">
                 <?php foreach ($participants as $p): 
                     $participantId = $p['id']['_serialized'];
-                    $infoUrl = 'https://whatsapp-waha.brandon.my/api/contacts?contactId=' . urlencode($participantId) . '&session=default';
+                    $infoUrl = 'https://waha.ezy.chat/api/contacts?contactId=' . urlencode($participantId) . '&session=default';
                     $infoCh = curl_init($infoUrl);
                     curl_setopt($infoCh, CURLOPT_RETURNTRANSFER, true);
                     curl_setopt($infoCh, CURLOPT_HTTPHEADER, ['accept: */*']);
@@ -199,7 +199,7 @@ function updateGroupPicture() {
         return;
     }
     
-    fetch('https://whatsapp-waha.brandon.my/api/default/groups/' + encodeURIComponent(currentGroupId) + '/picture', {
+    fetch('https://waha.ezy.chat/api/default/groups/' + encodeURIComponent(currentGroupId) + '/picture', {
         method: 'PUT',
         headers: {
             'accept': 'application/json',
@@ -230,7 +230,7 @@ function updateGroupPicture() {
 function updateGroupDescription() {
     const newDesc = document.getElementById('newGroupDesc').value;
     
-    fetch('https://whatsapp-waha.brandon.my/api/default/groups/' + encodeURIComponent(currentGroupId) + '/description', {
+    fetch('https://waha.ezy.chat/api/default/groups/' + encodeURIComponent(currentGroupId) + '/description', {
         method: 'PUT',
         headers: {
             'accept': '*/*',

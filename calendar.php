@@ -73,6 +73,10 @@
                         <button class="btn btn-warning"><i class="fas fa-ticket-alt me-2"></i>Tickets</button>
                     </a>
 
+                     <a href="/index.php/manageKnowledge?user_id=<?php echo $_GET['user_id'] ?? ''; ?>" style="margin-left:10px;margin-top:10px;">
+                        <button class="btn btn-warning"><i class="fas fa-book me-2"></i>Knowledge</button>
+                    </a>
+
                     <?php
                     $isGroup = isset($_GET['user_id']) && strpos($_GET['user_id'], '@g.us') !== false;
                     if($isGroup==true){

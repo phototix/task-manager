@@ -1,5 +1,5 @@
 <?php
-$apiUrl = 'https://whatsapp-waha.brandon.my/api/default/groups?sortBy=id';
+$apiUrl = 'https://waha.ezy.chat/api/default/groups?sortBy=id';
 $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -64,7 +64,7 @@ $data = json_decode($response, true);
             $groupId = $group['id']['_serialized'] ?? '';
             $groupName = htmlspecialchars($group['name'] ?? 'N/A');
             $groupDesc = htmlspecialchars($group['groupMetadata']['desc'] ?? 'No description');
-            $picApi = 'https://whatsapp-waha.brandon.my/api/default/groups/' . urlencode($groupId) . '/picture?refresh=false';
+            $picApi = 'https://waha.ezy.chat/api/default/groups/' . urlencode($groupId) . '/picture?refresh=false';
             $picCh = curl_init($picApi);
             curl_setopt($picCh, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($picCh, CURLOPT_HTTPHEADER, ['accept: application/json']);
@@ -188,7 +188,7 @@ function updateGroupPicture() {
         return;
     }
 
-    fetch('https://whatsapp-waha.brandon.my/api/default/groups/' + encodeURIComponent(currentGroupId) + '/picture', {
+    fetch('https://waha.ezy.chat/api/default/groups/' + encodeURIComponent(currentGroupId) + '/picture', {
         method: 'PUT',
         headers: {
             'accept': 'application/json',
@@ -219,7 +219,7 @@ function updateGroupPicture() {
 function updateGroupDescription() {
     const newDesc = document.getElementById('newGroupDesc').value;
     
-    fetch('https://whatsapp-waha.brandon.my/api/default/groups/' + encodeURIComponent(currentGroupId) + '/description', {
+    fetch('https://waha.ezy.chat/api/default/groups/' + encodeURIComponent(currentGroupId) + '/description', {
         method: 'PUT',
         headers: {
             'accept': '*/*',

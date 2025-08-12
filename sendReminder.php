@@ -27,7 +27,7 @@ $task = $result->fetch_assoc();
 $payload = json_encode($task);
 
 // Send to webhook
-$webhookUrl = "https://n8n.brandon.my/webhook/8372396e-90e2-4078-9ca8-c7d49bf19e31";
+$webhookUrl = "https://n8n.ezy.chat/webhook/8372396e-90e2-4078-9ca8-c7d49bf19e31";
 
 $ch = curl_init($webhookUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

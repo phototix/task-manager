@@ -8,13 +8,13 @@ try {
   die(json_encode(["error" => $e->getMessage()]));
 }
 
-$recipients = $_POST['recipients'] ?? '';
+$recipients = $_GET['recipients'] ?? '';
 if (!$recipients) {
   echo json_encode(["status" => "fail", "message" => "Missing recipients"]);
   exit;
 }
 
-$stmt = $pdo->prepare("DELETE FROM contacts WHERE recipients = ?");
+$stmt = $pdo->prepare("UPDATE contacts SET status='0' WHERE recipients = ?");
 $success = $stmt->execute([$recipients]);
 
 echo json_encode([

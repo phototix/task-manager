@@ -1,22 +1,13 @@
 <?php
 // Database connection
-$pdo = new PDO('mysql:host=db.gateway.01.webbypage.com;dbname=daily_coach', 'webbycms', '#Abccy1982#');
+$pdo = new PDO('mysql:host=database.ezy.chat;dbname=ai_chat_tasks', 'ezychat', '#Br3nzi2051Z#');
 
 // 1. Define the existing cron jobs that must be preserved
 $protectedCronJobs = [
     '0 9 * * * php /home/ubuntu/dailydose.php',
-    '0 5 * * * /home/ubuntu/backup_database.sh',
-    '* * * * * sudo php /var/www/task.brandon.my/addCron.php',
-    '0 0 * * * php /var/www/task.brandon.my/updateGroup.php',
-    '0 0 * * * php /var/www/task.brandon.my/converTime.php',
-    '40 4 * * * sudo -u www-data php /var/www/videostreamer/listTodaySchedule.php',
-    '0 8 * * * php /var/www/task.brandon.my/sendAnnouncement.php $(date +\%F)',
-    '* * * * * find /var/www/videostreamer/live -type f -name "*.ts" -mmin +10 -delete',
-    '0 1 * * * find /var/www/videostreamer/logs -name "stream_*.log" -type f -mtime +3 -delete',
-    '0 2 * * * curl -s "https://post.brandon.my/index.php/createPost?passkey=Quidents64" > /dev/null 2>&1',
-    '50 2 * * * sudo -u www-data php -f /var/www/cloud.i-dc.institute/occ files:scan --all && sudo -u www-data php -f /var/www/cloud.webbypage.com/occ files:scan --all',
-    '0 3 * * * sudo -u www-data php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --on && sudo -u www-data php -f /var/www/cloud.webbypage.com/occ maintenance:mode --on',
-    '15 3 * * * sudo -u www-data php -f /var/www/cloud.i-dc.institute/occ maintenance:mode --off && sudo -u www-data php -f /var/www/cloud.webbypage.com/occ maintenance:mode --off'
+    '* * * * * sudo php /var/www/html/task-manager/addCron.php',
+    '0 0 * * * php /var/www/html/task-manager/updateGroup.php',
+    '0 0 * * * php /var/www/html/task-manager/converTime.php'
 ];
 
 $Today = date('Y-m-d');
@@ -72,7 +63,7 @@ foreach ($tasks as $task) {
     $hour = date('G', $timestamp);    // 24-hour without leading zeros
     $minute = (int)date('i', $timestamp);  // Minutes with leading zeros
     
-    $newCrontab[] = "$minute $hour * * * php /var/www/task.brandon.my/sendReminder.php {$task['id']}";
+    $newCrontab[] = "$minute $hour * * * php /var/www/html/task-manager/sendReminder.php {$task['id']}";
 }
 
 // 5. Save the new crontab

@@ -11,6 +11,10 @@ $clean_uri = rtrim($clean_uri, '/');
 
 // Simple router
 switch ($clean_uri) {
+    case '/index.php/manageKnowledge':
+        // Load the knowledge page
+        require_once BASE_PATH . '/manageKnowledge.php';
+        break;
     case '/index.php/manageGroup':
         // Load the manage group page
         require_once BASE_PATH . '/manageGroup.php';
