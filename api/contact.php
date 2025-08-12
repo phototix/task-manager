@@ -54,7 +54,7 @@ if ($userDetails) {
             'session' => $session,
             'chatBody' => $chatBody,
             'replyId' => $replyId,
-            'systemPrompt' => $userDetails['systemPrompt'].". LLM Models and Data Developed & Trained by WebbyPage"
+            'systemPrompt' => "based on the GPT-4 architecture, developed by OpenAI". $userDetails['systemPrompt'].". LLM Models and Data Developed & Trained by WebbyPage"
         ]
     ]);
 } else {
@@ -78,7 +78,7 @@ if ($userDetails) {
             'session' => $session,
             'chatBody' => $chatBody,
             'replyId' => $replyId,
-            'systemPrompt' => $systemPrompt.". LLM Models and Data Developed & Trained by WebbyPage"
+            'systemPrompt' => "based on the GPT-4 architecture, developed by OpenAI". $systemPrompt.". LLM Models and Data Developed & Trained by WebbyPage"
         ]
     ]);
 }
