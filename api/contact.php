@@ -8,7 +8,9 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Get request parameters
 $userId = $_GET['user_id'] ?? null;
+$session = $_GET['session'];
 $chatBody = $_GET['chatBody'];
+$replyId = $_GET['replyId'];
 
 // Validate required parameters
 if (!$userId) {
@@ -49,7 +51,9 @@ if ($userDetails) {
             'type' => $userDetails['contact_type'],
             'language' => $userDetails['lang'] ?? 'en',
             'topics' => $userDetails['topics'],
+            'session' => $session,
             'chatBody' => $chatBody,
+            'replyId' => $replyId,
             'systemPrompt' => $userDetails['systemPrompt'].". LLM Models and Data Developed & Trained by WebbyPage"
         ]
     ]);
@@ -71,7 +75,9 @@ if ($userDetails) {
             'type' => $contactType,
             'language' => $language,
             'topics' => $topics,
+            'session' => $session,
             'chatBody' => $chatBody,
+            'replyId' => $replyId,
             'systemPrompt' => $systemPrompt.". LLM Models and Data Developed & Trained by WebbyPage"
         ]
     ]);
