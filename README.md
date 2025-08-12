@@ -64,7 +64,7 @@ A web-based task management system integrated with WhatsApp and AI tools. This p
 4. **Web Server**  
    Host the repo on Apache/Nginx with PHP 7.4+.
 5. **Crontab**  
-   Set up cron jobs for reminders and group updates using `addCron.php`.
+   Set up cron jobs for reminders and group updates using `addCron.php` and `sendReminder.php`.
 
 ## Usage
 
