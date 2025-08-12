@@ -127,7 +127,7 @@ if (!$userId) {
                             <h3>${item.title}</h3>
                             ${item.category ? `<p><strong>Category:</strong> ${item.category}</p>` : ''}
                             ${item.tags ? `<p><strong>Tags:</strong> ${item.tags}</p>` : ''}
-                            <p>${item.content.replace(/\n/g, '<br>')}</p>
+                            <p>${item.content}</p>
                             <small class="text-muted">Created: ${new Date(item.created_at).toLocaleString()}</small>
                             <div class="mt-2">
                                 <button class="btn btn-sm btn-warning edit-btn" data-id="${item.id}">Edit</button>

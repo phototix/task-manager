@@ -42,6 +42,7 @@
       </select>
     </div>
     <button type="submit" class="btn btn-success">Update</button>
+    <div onclick="manageContact()" class="btn btn-warning">Manage</div>
     <a href="/index.php/manageContacts" class="btn btn-secondary">Back</a>
   </form>
 </div>
@@ -53,6 +54,10 @@ const userId = urlParams.get('user_id');
 if (!userId) {
   alert("Missing user_id");
   location.href = '/index.php/manageContacts';
+}
+
+function manageContact(){
+  location.href = '/index.php/manageGroup?user_id=' + userId;
 }
 
 $.getJSON("/api/contactDetails.php?user_id=" + userId, function(data) {
