@@ -47,7 +47,8 @@ if ($userDetails) {
             'email' => $userDetails['email'],
             'type' => $userDetails['contact_type'],
             'language' => $userDetails['lang'] ?? 'en',
-            'topics' => $userDetails['topics']
+            'topics' => $userDetails['topics'],
+            'systemPrompt' => $userDetails['systemPrompt']
         ]
     ]);
 } else {
