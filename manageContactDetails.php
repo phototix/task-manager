@@ -18,7 +18,7 @@
       <label>Name</label>
       <input type="text" class="form-control" id="name" name="name">
     </div>
-    <div class="form-group">
+    <div class="form-group" style="display:none;">
       <label>Email</label>
       <input type="email" class="form-control" id="email" name="email" readonly>
     </div>
