@@ -45,7 +45,6 @@
     <div onclick="manageContact()" class="btn btn-warning">Manage</div>
     <div onclick="manageKnowledge()" class="btn btn-warning">Knowledge</div>
     <div onclick="manageTask()" class="btn btn-warning">Tasks</div>
-    <a href="/index.php/manageContacts" class="btn btn-secondary">Back</a>
   </form>
 </div>
 
