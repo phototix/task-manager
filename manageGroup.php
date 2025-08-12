@@ -62,7 +62,7 @@ $groupPic = $picData['url'] ?? 'https://cloud.i-dc.institute/index.php/s/CcYDwCC
         .manage-details-btn {
             position: absolute;
             right: 10px;
-            top: calc(18px + var(--edit-btn-height, 38px) + 8px); /* 8px margin below */
+            top: calc(28px + var(--edit-btn-height, 38px) + 8px); /* 8px margin below */
         }
         .edit-btn {
             position: absolute;
