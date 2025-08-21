@@ -1,8 +1,52 @@
 <?php
 // index.php - Main router file
 
+// Start session for authentication
+session_start();
+
 // Define base path
 define('BASE_PATH', __DIR__);
+
+// Include database configuration to get the password
+require_once BASE_PATH . '/config/database.php';
+
+// Authentication check
+function requireAuth() {
+    // Check if user is already authenticated via session
+    if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true) {
+        return true;
+    }
+    
+    // Check if authentication credentials are provided
+    if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])) {
+        header('WWW-Authenticate: Basic realm="Restricted Area"');
+        header('HTTP/1.0 401 Unauthorized');
+        echo 'Authentication required';
+        exit;
+    }
+    
+    // Validate credentials against database password
+    global $db_pass;
+    $username = $_SERVER['PHP_AUTH_USER'];
+    $password = $_SERVER['PHP_AUTH_PW'];
+    
+    // For basic auth, you might want to use a specific username or hardcode one
+    // since the context only shows database password, not username
+    if ($password === $db_pass) {
+        $_SESSION['authenticated'] = true;
+        // Store session ID in cookie for persistence
+        setcookie('PHPSESSID', session_id(), time() + 3600, '/'); // 1 hour expiration
+        return true;
+    }
+    
+    header('WWW-Authenticate: Basic realm="Restricted Area"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Invalid credentials';
+    exit;
+}
+
+// Require authentication for all routes
+requireAuth();
 
 // Get the requested URI
 $request_uri = $_SERVER['REQUEST_URI'];
@@ -35,8 +79,6 @@ switch ($clean_uri) {
         // Load the ticket page
         require_once BASE_PATH . '/ticket.php';
         break;
-        
-        
     case '/':
     case '':
         // Load the tasks page (default)
@@ -53,3 +95,4 @@ switch ($clean_uri) {
         ]);
         break;
 }
+?>

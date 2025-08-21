@@ -4,3 +4,5 @@ $db_host = 'db.gateway.01.webbypage.com';
 $db_name = 'daily_coach';
 $db_user = 'webbycms';
 $db_pass = '#Abccy1982#';
+
+$auth_pass = '#Abccy1982#';
