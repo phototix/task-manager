@@ -29,10 +29,11 @@ function requireAuth() {
     global $db_pass;
     $username = $_SERVER['PHP_AUTH_USER'];
     $password = $_SERVER['PHP_AUTH_PW'];
+    $current_user = $_GET['user_id'];
     
     // For basic auth, you might want to use a specific username or hardcode one
     // since the context only shows database password, not username
-    if ($password === $db_pass) {
+    if ($password === $db_pass &&  $username === $current_user ) {
         $_SESSION['authenticated'] = true;
         // Store session ID in cookie for persistence
         setcookie('PHPSESSID', session_id(), time() + 3600, '/'); // 1 hour expiration
